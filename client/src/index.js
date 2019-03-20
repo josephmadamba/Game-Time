@@ -20,6 +20,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import Homepage from './components/Homepage'
+import User from './containers/UserEntry'
 
 
 // Initialize redux store and thunk middleware
@@ -36,6 +37,7 @@ ReactDOM.render(<Provider store={store}>
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={Homepage} />
+        <Route path='/user/account' exact component={User}/>
       </Switch>
     </Router>
   </Provider>, document.getElementById('root'));

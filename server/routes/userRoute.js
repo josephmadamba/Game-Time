@@ -21,9 +21,11 @@ const userdb = require('../dataBase/userdb')
 
 router.post('/pickup/create/user', (req,res)=>{
     let user = req.body.user
+    console.log(user)
     if(user.username){
         bcrypt.hash(user.password, saltRounds)
         .then(password=>{
+            console.log('This is the password', password)
             userdb.createUser(user.username, password)
                 .then(data=>{
                     if(data.created){
@@ -37,5 +39,20 @@ router.post('/pickup/create/user', (req,res)=>{
                 })
         })
     }
+
+})
+
+router.get('/pickup/login', (req, res)=>{
+    let username = req.query.username
+    let password = req.query.password
+
+    userdb.checkLogin(username, password)
+    .then(data=>{
+        if(data.correct){
+            res.send({success: true, user: data.user})
+        }else{
+            res.send({success: false})
+        }
+    })
 
 })

@@ -19,19 +19,20 @@ const saltRounds = 10;
 
 
 const userdb = {
-    createUser: createUser
+    createUser: createUser,
+    checkLogin: checkLogin
 
 }
 module.exports = userdb
 
 
-function createUser(username, password){
+function createUser(username, hash){
         return new Promise((resolve, reject)=>{
             db.User.findOrCreate({
                 where:{username: username},  
-                default:{
+                defaults:{
                     username: username,
-                    password: password
+                    password: hash
                 }
             })
             .spread((user, created)=>{
@@ -44,6 +45,23 @@ function createUser(username, password){
 
         })
 
+}
+
+
+function checkLogin(username, password){
+    return new Promise((resolve, reject)=>{
+        db.User.findOne({where:{username: username}})
+        .then(user=>{
+            console.log(user.dataValues)
+            bcrypt.compare(password, user.dataValues.password, (err, correct)=>{
+                if(correct){
+                    resolve({correct: true, user: user.dataValues})
+                }else{
+                    reject({correct:false, error: err})
+                }
+        })
+    })
+})
 }
 
 
