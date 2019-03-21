@@ -1,0 +1,16 @@
+.sign-in-form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: fit-content;
+}
+
+
+.header{
+    margin: auto;
+    width: fit-content;
+}
+
+.tabs{
+    margin: auto;
+}
