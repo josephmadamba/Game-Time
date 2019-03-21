@@ -9,6 +9,8 @@ import UserAccForm from "../components/UserAccForm";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import "../styles/UserAcc.css";
+import { connect } from "react-redux";
+
 
 function TabContainer(props) {
   return (
@@ -95,6 +97,9 @@ class UserEntry extends Component {
   handleLogPass(evt) {
     this.setState({ passLog: evt.target.value, passLogEr: false });
   }
+
+
+
   handleUserRegister(evt) {
     evt.preventDefault();
     axios
@@ -104,6 +109,8 @@ class UserEntry extends Component {
       .then(res => {
         if (res.data.success) {
           this.setState({ usernameErr: false, passwordErr: false });
+          this.props.updateUser(res.data.user)
+
         } else {
           this.setState({ usernameErr: true });
         }
@@ -120,6 +127,7 @@ class UserEntry extends Component {
         if (res.data.success) {
              console.log(res.data)
           this.setState({ userLogEr: false, passLogEr: false });
+          this.props.updateUser(res.data.user)
         } else {
           this.setState({ userLogEr: true, passLogEr: true });
         }
@@ -216,4 +224,16 @@ UserEntry.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(UserEntry);
+const mapStateToProps = state => ({
+    user : state.user
+  });
+  
+  const mapDispatchToProps = dispatch => ({
+    updateUser: (user) =>{dispatch({type:'UPDATE_USER', value: user})}
+  });
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withStyles(styles)(UserEntry));

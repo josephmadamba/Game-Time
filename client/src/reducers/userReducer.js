@@ -1,7 +1,15 @@
-const userReducer = ( state = {user: {}},action) => {
-    let newState = Object.assign({}, state);
+const userReducer = ( state = {},action) => {
+    let newState = deepCopy(state)
+
 
     switch(action.type){
+
+        case 'UPDATE_USER':
+        console.log(action.value)
+        newState = action.value
+            return newState
+
+
         default:
             return newState
     }
@@ -9,6 +17,9 @@ const userReducer = ( state = {user: {}},action) => {
 
 
 }
-
-
 export default userReducer
+
+
+function deepCopy(value){
+    return JSON.parse(JSON.stringify(value));
+}
