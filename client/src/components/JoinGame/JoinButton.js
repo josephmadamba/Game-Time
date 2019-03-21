@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
 
 export default class JoinButton extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-  
+
     this.state = {
-       
+
     }
   }
-  
+
   handleClick (evt) {
 
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <Button variant="contained" color="primary" >
+        <Button variant='contained' color='primary' >
         Join
-      </Button>
+        </Button>
       </div>
     )
   }

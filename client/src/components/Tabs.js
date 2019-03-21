@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import DayTabs from './DayTabs'
+import DayTabs from './JoinGame/DayTabs'
 
 function TabContainer(props) {
   console.log(props)

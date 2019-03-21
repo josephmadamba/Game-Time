@@ -3,28 +3,24 @@ import { connect } from 'react-redux'
 import List from '../components/JoinGame/JoinGameList'
 
 class JoinGames extends Component {
-
   componentDidMount () {
 
   }
 
-  render() {
+  render () {
     console.log(this.props.gameData)
     return (
       <React.Fragment>
         {this.props.gameData.map((data, index) => {
           return (
-          <List title={data.title}
-                time={data.time}
-                date={data.date}
-                description={data.description}
-                joined={data.joined} />
+            <List title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} />
           )
         })}
-       
       </React.Fragment>
-       
-
     )
   }
 }
