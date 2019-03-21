@@ -25,9 +25,29 @@ const styles = {
 };
 
 class CenteredTabs extends React.Component {
-  state = {
-    value: 0,
-  };
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      value: 0
+
+    }
+    this.day = this.day.bind(this)
+  }
+
+  day () {
+    let week = new Array('Sunday', 
+                         "Monday",
+                         "Tuesday",
+                         "Wednesday",
+                         "Thursday",
+                         "Friday",
+                         "Saturday")
+    let date = new Date()
+    let day = date.getDay()
+    console.log(week[day])
+    return day
+  }
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -35,7 +55,9 @@ class CenteredTabs extends React.Component {
 
   render() {
     const { classes } = this.props;
-
+    let week = ['Sunday', "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let date = new Date()
+    let day = date.getDay()
     return (
       <Paper className={classes.root}>
         <Tabs
@@ -45,21 +67,22 @@ class CenteredTabs extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Sunday" />
-          <Tab label="Monday" />
-          <Tab label="Tuesday" />
-          <Tab label="Wednesday" />
-          <Tab label="Thursday" />
-          <Tab label="Friday" />
-          <Tab label="Saturday" />
+
+          <Tab label={week[day] + ' (today)'} />
+          <Tab label={week[(day + 1) % 7]} />
+          <Tab label={week[(day + 2) % 7]} />
+          <Tab label={week[(day + 3) % 7]} />
+          <Tab label={week[(day + 4) % 7]} />
+          <Tab label={week[(day + 5) % 7]} />
+          <Tab label={week[(day + 6) % 7]} />
         </Tabs>
         {this.state.value === 0 && <TabContainer><JoinGames /></TabContainer>}
-        {this.state.value === 1 && <TabContainer>Monday</TabContainer>}
-        {this.state.value === 2 && <TabContainer>Tuesday</TabContainer>}
-        {this.state.value === 3 && <TabContainer>Wednesday</TabContainer>}
-        {this.state.value === 4 && <TabContainer>Thursday</TabContainer>}
-        {this.state.value === 5 && <TabContainer>Friday</TabContainer>}
-        {this.state.value === 6 && <TabContainer>Saturday</TabContainer>}
+        {this.state.value === 1 && <TabContainer></TabContainer>}
+        {this.state.value === 2 && <TabContainer></TabContainer>}
+        {this.state.value === 3 && <TabContainer></TabContainer>}
+        {this.state.value === 4 && <TabContainer></TabContainer>}
+        {this.state.value === 5 && <TabContainer></TabContainer>}
+        {this.state.value === 6 && <TabContainer></TabContainer>}
       </Paper>
     );
   }
