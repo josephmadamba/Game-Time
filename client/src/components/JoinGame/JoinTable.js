@@ -44,8 +44,8 @@ class JoinTable extends React.Component {
             <TableRow>
               <TableCell>Date</TableCell>
               <TableCell align='right'>Time</TableCell>
-              <TableCell align='right'>Description</TableCell>
-              <TableCell align='right'># joined</TableCell>
+              <TableCell align='left'>Description</TableCell>
+              <TableCell align='left'># joined</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -55,8 +55,8 @@ class JoinTable extends React.Component {
                 {date}
               </TableCell>
               <TableCell align='right'>{time}</TableCell>
-              <TableCell align='right'>{description}</TableCell>
-              <TableCell align='right'>{joined}</TableCell>
+              <TableCell align='left'>{description}</TableCell>
+              <TableCell align='left'>{joined}</TableCell>
               <TableCell align='right'><JoinButton /></TableCell>
             </TableRow>
 
