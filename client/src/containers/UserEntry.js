@@ -64,6 +64,8 @@ class UserEntry extends Component {
       usernameErr: false,
       password: "",
       passwordErr: false,
+      email: '',
+      emailErr: false,
 
       userLog: "",
       userLogEr: false,
@@ -75,6 +77,8 @@ class UserEntry extends Component {
     this.handlePassword = this.handlePassword.bind(this);
     this.handleLogUser = this.handleLogUser.bind(this);
     this.handleLogPass = this.handleLogPass.bind(this);
+    this.handleEmail = this.handleEmail.bind(this)
+
   }
 
   handleChange = (event, value) => {
@@ -98,21 +102,25 @@ class UserEntry extends Component {
     this.setState({ passLog: evt.target.value, passLogEr: false });
   }
 
+  handleEmail(evt){
+    this.setState({email: evt.target.value, emailErr: false})
+  }
+
 
 
   handleUserRegister(evt) {
     evt.preventDefault();
     axios
       .post("/pickup/create/user", {
-        user: { username: this.state.username, password: this.state.password }
+        user: { username: this.state.username, password: this.state.password, email: this.state.email }
       })
       .then(res => {
         if (res.data.success) {
-          this.setState({ usernameErr: false, passwordErr: false });
+          this.setState({ usernameErr: false, passwordErr: false, emailErr: false });
           this.props.updateUser(res.data.user)
 
         } else {
-          this.setState({ usernameErr: true });
+          this.setState({ usernameErr: true, emailErr: true });
         }
       });
   }
@@ -168,6 +176,14 @@ class UserEntry extends Component {
                 name={"Password"}
                 type={"password"}
                 failed={this.state.passwordErr}
+                classes={classes}
+              />
+              <UserAccForm
+                method={this.handleEmail}
+                value={this.state.email}
+                name={"email"}
+                type={"email"}
+                failed={this.state.emailErr}
                 classes={classes}
               />
               <Button

@@ -16,17 +16,20 @@ const saltRounds = 10;
 module.exports = router;
 
 const userdb = require('../dataBase/userdb')
-
+const validator = require("email-validator");
 
 
 router.post('/pickup/create/user', (req,res)=>{
     let user = req.body.user
     console.log(user)
     if(user.username){
+        if (validator.validate(user.email)){
         bcrypt.hash(user.password, saltRounds)
         .then(password=>{
             console.log('This is the password', password)
-            userdb.createUser(user.username, password)
+
+
+            userdb.createUser(user.username, password, user.email)
                 .then(data=>{
                     if(data.created){
                         res.send({success: true, user: data.user.dataValues})
@@ -38,6 +41,9 @@ router.post('/pickup/create/user', (req,res)=>{
                     res.send({success: false, error: er})
                 })
         })
+    }else{
+        res.send({success: false, error: er})
+    }
     }
 
 })
@@ -46,7 +52,8 @@ router.get('/pickup/login', (req, res)=>{
     let username = req.query.username
     let password = req.query.password
 
-    userdb.checkLogin(username, password)
+
+    userdb.checkLogin(username, password, email)
     .then(data=>{
         if(data.correct){
             res.send({success: true, user: data.user})

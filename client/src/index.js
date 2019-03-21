@@ -33,6 +33,7 @@ const routing = routerMiddleware(history);
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(routing)));
 
+
 ReactDOM.render(<Provider store={store}>
     <Router history={history}>
       <Switch>

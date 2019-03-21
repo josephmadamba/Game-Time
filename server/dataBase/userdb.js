@@ -26,13 +26,14 @@ const userdb = {
 module.exports = userdb
 
 
-function createUser(username, hash){
+function createUser(username, hash, email){
         return new Promise((resolve, reject)=>{
             db.User.findOrCreate({
                 where:{username: username},  
                 defaults:{
                     username: username,
-                    password: hash
+                    password: hash,
+                    email: email
                 }
             })
             .spread((user, created)=>{
