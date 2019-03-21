@@ -35,20 +35,6 @@ class CenteredTabs extends React.Component {
     this.day = this.day.bind(this)
   }
 
-  day () {
-    let week = new Array('Sunday', 
-                         "Monday",
-                         "Tuesday",
-                         "Wednesday",
-                         "Thursday",
-                         "Friday",
-                         "Saturday")
-    let date = new Date()
-    let day = date.getDay()
-    console.log(week[day])
-    return day
-  }
-
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -67,7 +53,6 @@ class CenteredTabs extends React.Component {
           textColor="primary"
           centered
         >
-
           <Tab label={week[day] + ' (today)'} />
           <Tab label={week[(day + 1) % 7]} />
           <Tab label={week[(day + 2) % 7]} />
