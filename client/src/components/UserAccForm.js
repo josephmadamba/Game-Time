@@ -30,23 +30,27 @@ const UserAccForm = ({method, value, name,type, failed, classes}) => {
     {failed? <TextField
         error
         required
-          id="standard-text"
+          id="outlined-with-placeholder"
           label={name}
           type={type}
           value={value}
+          rows='1'
           onChange={(e)=>{method(e)}}
           className={classes.textField}
           margin="normal"
+          variant="outlined"
         />:
     <TextField
     required
-          id="standard-text"
+          id="outlined-with-placeholder"
           label={name}
           type={type}
           value={value}
+          row='1'
           onChange={(e)=>{method(e)}}
           className={classes.textField}
           margin="normal"
+          variant="outlined"
         />}
 
         {failed? <p>{name} is invalid</p>: null}
