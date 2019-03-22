@@ -48,10 +48,12 @@ class CenteredTabs extends React.Component {
         <Tab label={week[(day + 6) % 7]} />
       </Tabs>
       
+      {/* NEED TO FIGURE OUT HOW TO RENDER THE RIGHT GAMES IN THEIR RESPECTIVE TABS */}
       {this.state.value === 0 && 
         this.props.gameData.map((data, index) => {
           console.log(data)
           return (
+            // MATCH DATE OF TODAY AND RENDER OUT THE GAMES
             data.date === '03/22/2019' ? <List key={index}
             title={data.title}
             time={data.time}
@@ -63,7 +65,9 @@ class CenteredTabs extends React.Component {
         })}
       {this.state.value === 1 && this.props.gameData.map((data, index) => {
           console.log(data)
-          return (data.date === '03/23/2019' ? <List key={index}
+          return (
+          // MATCH DATE OF TOMORROW AND RENDER OUT THE GAMES...
+          data.date === '03/23/2019' ? <List key={index}
           title={data.title}
           time={data.time}
           date={data.date}
