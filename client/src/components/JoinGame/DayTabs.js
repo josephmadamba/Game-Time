@@ -1,11 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/styles'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import JoinGames from '../../containers/JoinGames'
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1
+  }
+})
 
 function TabContainer (props) {
   console.log(props)
@@ -16,63 +21,42 @@ function TabContainer (props) {
   )
 }
 
-const styles = {
-  root: {
-    flexGrow: 1
+function CenteredTabs () {
+  const classes = useStyles()
+  const [value, setValue] = React.useState(0)
+
+  function handleChange (event, newValue) {
+    setValue(newValue)
   }
+  let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  let date = new Date()
+  let day = date.getDay()
+  return (
+    <Paper className={classes.root}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor='primary'
+        textColor='primary'
+        centered
+      >
+        <Tab label={week[day] + ' (today)'} />
+        <Tab label={week[(day + 1) % 7]} />
+        <Tab label={week[(day + 2) % 7]} />
+        <Tab label={week[(day + 3) % 7]} />
+        <Tab label={week[(day + 4) % 7]} />
+        <Tab label={week[(day + 5) % 7]} />
+        <Tab label={week[(day + 6) % 7]} />
+      </Tabs>
+      {value === 0 && <TabContainer><JoinGames /></TabContainer>}
+      {value === 1 && <TabContainer />}
+      {value === 2 && <TabContainer />}
+      {value === 3 && <TabContainer />}
+      {value === 4 && <TabContainer />}
+      {value === 5 && <TabContainer />}
+      {value === 6 && <TabContainer />}
+    </Paper>
+  )
 }
 
-class CenteredTabs extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      value: 0
-
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange (event, value) {
-    this.setState({ value })
-  };
-
-  render () {
-    const { classes } = this.props
-    let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    let date = new Date()
-    let day = date.getDay()
-    return (
-      <Paper className={classes.root}>
-        <Tabs
-          value={this.state.value}
-          onChange={this.handleChange}
-          indicatorColor='primary'
-          textColor='primary'
-          centered
-        >
-          <Tab label={week[day] + ' (today)'} />
-          <Tab label={week[(day + 1) % 7]} />
-          <Tab label={week[(day + 2) % 7]} />
-          <Tab label={week[(day + 3) % 7]} />
-          <Tab label={week[(day + 4) % 7]} />
-          <Tab label={week[(day + 5) % 7]} />
-          <Tab label={week[(day + 6) % 7]} />
-        </Tabs>
-        {this.state.value === 0 && <TabContainer><JoinGames /></TabContainer>}
-        {this.state.value === 1 && <TabContainer />}
-        {this.state.value === 2 && <TabContainer />}
-        {this.state.value === 3 && <TabContainer />}
-        {this.state.value === 4 && <TabContainer />}
-        {this.state.value === 5 && <TabContainer />}
-        {this.state.value === 6 && <TabContainer />}
-      </Paper>
-    )
-  }
-}
-
-CenteredTabs.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(CenteredTabs)
+export default CenteredTabs

@@ -1,5 +1,4 @@
 import React from 'react'
-import List from '@material-ui/core/List'
 import Accordion from './JoinGameAccordion'
 
 class SimpleList extends React.Component {
@@ -8,13 +7,11 @@ class SimpleList extends React.Component {
     console.log(title)
     return (
       <div >
-
         <Accordion title={title}
           time={time}
           date={date}
           description={description}
           joined={joined} />
-
       </div>
     )
   }

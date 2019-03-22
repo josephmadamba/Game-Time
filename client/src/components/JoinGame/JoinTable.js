@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import JoinButton from './JoinButton'
+import Button from '@material-ui/core/Button'
 
 const styles = theme => ({
   root: {
@@ -57,7 +57,10 @@ class JoinTable extends React.Component {
               <TableCell align='right'>{time}</TableCell>
               <TableCell align='left'>{description}</TableCell>
               <TableCell align='left'>{joined}</TableCell>
-              <TableCell align='right'><JoinButton /></TableCell>
+              <TableCell align='right'>
+                <Button variant='contained' color='primary' >
+                  Join
+                </Button></TableCell>
             </TableRow>
 
           </TableBody>

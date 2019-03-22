@@ -5,7 +5,7 @@ import Tabs from './Tabs'
 const Dashboard = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Tabs />
     </div>
   )

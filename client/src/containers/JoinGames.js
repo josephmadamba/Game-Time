@@ -20,7 +20,9 @@ class JoinGames extends Component {
               joined={data.joined} />
           )
         })}
+
       </React.Fragment>
+
     )
   }
 }

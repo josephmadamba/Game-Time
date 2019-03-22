@@ -45,15 +45,13 @@ class CenteredTabs extends React.Component {
           centered
         >
           <Tab label="Games" />
-          <Tab label="Cities" />
           <Tab label="FAQ" />
           <Tab label="About" />
         </Tabs>
         {this.state.value === 0 && <TabContainer><DayTabs/></TabContainer>}
-        {this.state.value === 1 && <TabContainer>Cities</TabContainer>}
+        {this.state.value === 1 && <TabContainer></TabContainer>}
         {this.state.value === 2 && <TabContainer>FAQ</TabContainer>}
-        {this.state.value === 3 && <TabContainer>About</TabContainer>}
-      </Paper>
+    </Paper>
     );
   }
 }
