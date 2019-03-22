@@ -21,6 +21,7 @@ import * as serviceWorker from './serviceWorker';
 // Components
 import Homepage from './components/Homepage'
 import User from './containers/UserEntry'
+import CreateGames from "./components/CreateGames";
 
 
 // Initialize redux store and thunk middleware
@@ -38,7 +39,10 @@ ReactDOM.render(<Provider store={store}>
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={Homepage} />
-        <Route path='/user/account' exact component={User}/>
+      <Route path='/user/account' exact component={User} />
+      <Route path='/games/create' exact component={CreateGames} />
+      
+      
       </Switch>
     </Router>
   </Provider>, document.getElementById('root'));
