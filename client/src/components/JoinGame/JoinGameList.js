@@ -7,7 +7,8 @@ class SimpleList extends React.Component {
     console.log(title)
     return (
       <div >
-        <Accordion title={title}
+        <Accordion 
+          title={title}
           time={time}
           date={date}
           description={description}
