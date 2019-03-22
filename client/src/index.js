@@ -18,7 +18,12 @@ import * as serviceWorker from './serviceWorker'
 
 // Components
 import Homepage from './components/Homepage'
+<<<<<<< HEAD
 import Dashboard from './components/Dashboard'
+=======
+import User from './containers/UserEntry'
+
+>>>>>>> e26d2b1e512bda49d602121af742832b34d05ebc
 
 // Initialize redux store and thunk middleware
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -28,7 +33,9 @@ const routing = routerMiddleware(history)
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(routing)))
 
+
 ReactDOM.render(<Provider store={store}>
+<<<<<<< HEAD
   <Router history={history}>
     <Switch>
       <Route path='/' exact component={Homepage} />
@@ -36,6 +43,15 @@ ReactDOM.render(<Provider store={store}>
     </Switch>
   </Router>
 </Provider>, document.getElementById('root'))
+=======
+    <Router history={history}>
+      <Switch>
+        <Route path="/" exact component={Homepage} />
+        <Route path='/user/account' exact component={User}/>
+      </Switch>
+    </Router>
+  </Provider>, document.getElementById('root'));
+>>>>>>> e26d2b1e512bda49d602121af742832b34d05ebc
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
