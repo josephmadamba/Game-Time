@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 
@@ -16,28 +15,40 @@ const dbGames = require('../dataBase/gamesdb')
 module.exports = router;
 
 
-router.post('/games/create/', (req, res)=>{
+router.post('/games/create/', (req, res) => {
   let input = req.body
   dbGames.createGames(input.date, input.day, input.time, input.title, input.description, input.user)
-  .then(data=>{
-    console.log(data)
-    res.send({success: true, data:data.dataValues})
-  })
-  .catch(er=>{
-    res.send({success: flase, data:er})
-  })
+    .then(data => {
+      console.log(data)
+      res.send({
+        success: true,
+        data: data.dataValues
+      })
+    })
+    .catch(er => {
+      res.send({
+        success: flase,
+        data: er
+      })
+    })
 })
 
 
-router.get('/games', (req,res)=>{
+router.get('/games', (req, res) => {
 
   dbGames.getGames()
-  .then(data=>{
+    .then(data => {
 
-    res.send({success:true, data:data})
-  })
-  .catch(er=>{
-    console.log(er)
-    res.send({success:false, er:er})
-  })
+      res.send({
+        success: true,
+        data: data
+      })
+    })
+    .catch(er => {
+      console.log(er)
+      res.send({
+        success: false,
+        er: er
+      })
+    })
 })
