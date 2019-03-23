@@ -118,6 +118,7 @@ class UserEntry extends Component {
         if (res.data.success) {
           this.setState({ usernameErr: false, passwordErr: false, emailErr: false });
           this.props.updateUser(res.data.user)
+          this.props.history.push('/dashboard')
 
         } else {
           this.setState({ usernameErr: true, emailErr: true });
@@ -136,6 +137,7 @@ class UserEntry extends Component {
              console.log(res.data)
           this.setState({ userLogEr: false, passLogEr: false });
           this.props.updateUser(res.data.user)
+          this.props.history.push('/dashboard')
         } else {
           this.setState({ userLogEr: true, passLogEr: true });
         }

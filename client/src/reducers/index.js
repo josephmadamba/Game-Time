@@ -7,7 +7,7 @@ import user from './userReducer'
 import games from './gamesReducer'
 
 const rootReducer = combineReducers({
-  user: user,
+  user,
   games
 })
 
