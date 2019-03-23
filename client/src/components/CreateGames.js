@@ -133,7 +133,27 @@ class CreateGames extends React.Component {
     // handleGameDesc(evt) {
     //     this.setState({ gameDesc: evt.target.value, gameDescEr: false });
     // }
-  
+
+    
+    handleCreateGame(evt) {
+        evt.preventDefault();
+        axios
+          .post("/games/create", {
+            game: { gameName: this.state.gameName, gameAddress: this.state.gameAddress, email: this.state.email }
+          })
+          .then(res => {
+            if (res.data.success) {
+              this.setState({ usernameErr: false, passwordErr: false, emailErr: false });
+              this.props.updateUser(res.data.user)
+              this.props.history.push('/dashboard')
+    
+            } else {
+              this.setState({ usernameErr: true, emailErr: true });
+            }
+          });
+      }
+ 
+    
   
 render() {
     const { classes } = this.props;
