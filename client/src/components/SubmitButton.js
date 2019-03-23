@@ -18,7 +18,7 @@ function SubmitButton(props) {
     <div>
       
       <label htmlFor="contained-button-file">
-        <Button variant="contained" component="span" className={classes.button}>
+        <Button type='submit'variant="contained" component="span" className={classes.button}>
           Submit
         </Button>
       </label>

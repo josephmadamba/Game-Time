@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import DatePicker from "react-datepicker";
-
+import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import setMinutes from "date-fns";
 import setHours from "date-fns";
@@ -54,7 +54,11 @@ const styles = theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-  },
+    },
+    button: {
+        margin: theme.spacing.unit,
+        width: "fit-content"
+      }
   
 
 });
@@ -62,15 +66,32 @@ const styles = theme => ({
 
 
 class CreateGames extends React.Component {
-  state = {
-    name: "",
-    age: "",
-    multiline: "",
-    startDate: new Date()
-  };
+    constructor(props) {
+        super(props)
+       this.state = {
+            name: "",
+            age: "",
+            multiline: "",
+            startDate: new Date(),
+            gameName: '',
+            gameNameEr: false,
+            gameAddress: '',
+            gameAddressEr: false,
+            gameCity: '',
+            gameCityEr: false,
+            gameSt: '',
+            gameStEr: false,
+            gameZip: '',
+            gameZipEr: false,
+            gameDesc: '',
+            gameDescEr: false,
+    
+        };
+    
+        
+    }
 
-  
-  
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
@@ -82,22 +103,55 @@ class CreateGames extends React.Component {
       startDate: date
     });
   }
-  render() {
+    
+    handleSubmit(evt) {
+        console.log('hello')
+        evt.preventDefault()
+    }
+    
+    
+    // handleGameName(evt) {
+    //     this.setState({ gameName: evt.target.value, gameNameEr: false });
+    // }
+
+    // handleGameAddress(evt) {
+    //     this.setState({ gameAddress: evt.target.value, gameAddressEr: false });
+    // }
+
+    // handleGameCity(evt) {
+    //     this.setState({ gameCity: evt.target.value, gameCityEr: false });
+    // }
+    
+    // handleGameSt(evt) {
+    //     this.setState({ gameSt: evt.target.value, gameStEr: false });
+    // }
+
+    // handleGameZip(evt) {
+    //     this.setState({ gameZip: evt.target.value, gameZipEr: false });
+    // }
+
+    // handleGameDesc(evt) {
+    //     this.setState({ gameDesc: evt.target.value, gameDescEr: false });
+    // }
+  
+  
+render() {
     const { classes } = this.props;
 
     return (
       <div>
-      <form className={classes.container} noValidate autoComplete="off">
+            <form className={classes.container} noValidate autoComplete="off" onSubmit={(evt)=>{this.handleSubmit(evt)}}>
         
           <TitleBar/>
           
           
           <TextField
+          required
           id="outlined-name"
           label="Name Your Game"
           className={classes.textField}
-          value={this.state.name}
-          onChange={this.handleChange("name")}
+          value={this.state.gameName}
+          onChange={this.handleChange("gameName")}
           margin="normal"
           variant="outlined"
         />
@@ -108,12 +162,13 @@ class CreateGames extends React.Component {
 
 
         <TextField
+            required
           id="outlined-multiline-flexible"
           label="Game Address"
           multiline
           rowsMax="4"
-          value={this.state.multiline}
-          onChange={this.handleChange("multiline")}
+          value={this.state.gameAddress}
+          onChange={this.handleChange("gameAddress")}
           className={classes.textField}
           margin="normal"
           helperText="Where is the game located?"
@@ -121,12 +176,13 @@ class CreateGames extends React.Component {
         />
 
         <TextField
+        required
           id="outlined-multiline-flexible"
           label="City"
           multiline
           rowsMax="4"
-          value={this.state.multiline}
-          onChange={this.handleChange("multiline")}
+          value={this.state.gameCity}
+          onChange={this.handleChange("gameCity")}
           className={classes.textField}
           margin="normal"
           helperText="ex. Houston"
@@ -134,12 +190,13 @@ class CreateGames extends React.Component {
         />
 
         <TextField
+        required
           id="outlined-multiline-flexible"
           label="State"
           multiline
           rowsMax="1"
-          value={this.state.multiline}
-          onChange={this.handleChange("multiline")}
+          value={this.state.gameSt}
+          onChange={this.handleChange("gameSt")}
           className={classes.textField}
           margin="normal"
           helperText="ex. TX not Texas"
@@ -147,12 +204,13 @@ class CreateGames extends React.Component {
         />
 
         <TextField
+        required
           id="outlined-multiline-flexible"
           label="Zip Code"
           multiline
           rowsMax="1"
-          value={this.state.multiline}
-          onChange={this.handleChange("multiline")}
+          value={this.state.gameZip}
+          onChange={this.handleChange("gameZip")}
           className={classes.textField}
           margin="normal"
           helperText="Zip  Code"
@@ -160,12 +218,13 @@ class CreateGames extends React.Component {
         />
 
         <TextField
+        required
           id="outlined-multiline-flexible"
           label="Describe your game..."
           multiline
           rowsMax="10"
-          value={this.state.multiline}
-          onChange={this.handleChange("multiline")}
+          value={this.state.gameDesc}
+          onChange={this.handleChange("gameDesc")}
           className={classes.textField}
           margin="normal"
           helperText="is there a fee? is it coed? etc."
@@ -183,7 +242,14 @@ class CreateGames extends React.Component {
           timeCaption="time"
       />
 
-      <SubmitButton/>
+            <Button
+                variant="contained"
+                className={classes.button}
+                type="submit"
+              >
+                Submit
+              </Button>
+            
 
         
         </form>
