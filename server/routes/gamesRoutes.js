@@ -12,7 +12,32 @@ router.use(
 );
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-
+const dbGames = require('../dataBase/gamesdb')
 module.exports = router;
 
 
+router.post('/games/create/', (req, res)=>{
+  let input = req.body
+  dbGames.createGames(input.date, input.day, input.time, input.title, input.description, input.user)
+  .then(data=>{
+    console.log(data)
+    res.send({success: true, data:data.dataValues})
+  })
+  .catch(er=>{
+    res.send({success: flase, data:er})
+  })
+})
+
+
+router.get('/games', (req,res)=>{
+
+  dbGames.getGames()
+  .then(data=>{
+
+    res.send({success:true, data:data})
+  })
+  .catch(er=>{
+    console.log(er)
+    res.send({success:false, er:er})
+  })
+})

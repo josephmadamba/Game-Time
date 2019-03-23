@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(require('./routes/userRoute'))
+app.use(require('./routes/gamesRoutes'))
 
 
 
