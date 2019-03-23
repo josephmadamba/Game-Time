@@ -27,7 +27,7 @@ router.post('/games/create/', (req, res) => {
     })
 })
 
-router.get('/games', (req, res) => {
+router.get('/dashboard', (req, res) => {
   dbGames.getGames()
     .then(data => {
       res.send({ success: true, data: data })

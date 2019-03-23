@@ -21,9 +21,7 @@ const styles = theme => ({
 })
 // const { date, time, description, joined } = this.props
 
-function SimpleTable (props) {
-  const { classes } = props
-
+function SimpleTable ({ classes, date, time, description, joined }) {
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -39,11 +37,11 @@ function SimpleTable (props) {
 
           <TableRow>
             <TableCell component='th' scope='row'>
-              date
+              {date}
             </TableCell>
-            <TableCell align='right'>time</TableCell>
-            <TableCell align='left'>description</TableCell>
-            <TableCell align='left'>joined</TableCell>
+            <TableCell align='right'>{time}</TableCell>
+            <TableCell align='left'>{description}</TableCell>
+            <TableCell align='left'>{joined}</TableCell>
             <TableCell align='right'>
               <Button variant='contained' color='primary' >
                   Join
