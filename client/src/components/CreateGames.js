@@ -86,7 +86,7 @@ class CreateGames extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div style={{width:"100%"}}>
+      <div>
       <form className={classes.container} noValidate autoComplete="off">
         
           <TitleBar/>
@@ -174,7 +174,8 @@ class CreateGames extends React.Component {
 
       <DatePicker
           selected={this.state.startDate}
-          onChange={(e)=>this.handleInput(e)}
+          onChange={(e) => this.handleInput(e)}
+          className={classes.textField}          
           showTimeSelect
           timeFormat="H:mm"
           timeIntervals={30}
