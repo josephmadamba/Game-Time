@@ -53,7 +53,7 @@ router.get('/pickup/login', (req, res)=>{
     let password = req.query.password
 
 
-    userdb.checkLogin(username, password, email)
+    userdb.checkLogin(username, password)
     .then(data=>{
         if(data.correct){
             res.send({success: true, user: data.user})

@@ -5,9 +5,11 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "@material-ui/lab": "^3.0.0-alpha.30",
+    "@material-ui/styles": "^3.0.0-alpha.10",
     "@material/top-app-bar": "^1.0.1",
     "axios": "^0.18.0",
-    "material-ui": "^0.20.2",
+    "material-ui": "^1.0.0-beta.47",
     "react": "^16.8.4",
     "react-datepicker": "^2.2.0",
     "react-dom": "^16.8.4",
