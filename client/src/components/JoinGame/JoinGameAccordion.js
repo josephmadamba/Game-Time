@@ -29,8 +29,4 @@ class SimpleExpansionPanel extends React.Component {
   }
 }
 
-SimpleExpansionPanel.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
 export default SimpleExpansionPanel

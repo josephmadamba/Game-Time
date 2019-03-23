@@ -8,9 +8,9 @@ import List from '../components/JoinGame/JoinGameList'
 
 class CenteredTabs extends React.Component {
   // const classes = useStyles()
-  constructor(props) {
+  constructor (props) {
     super(props)
-  
+
     this.state = {
       value: 0
     }
@@ -23,65 +23,97 @@ class CenteredTabs extends React.Component {
     })
   }
 
-
-  render() {
-    let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  render () {
+    let week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     let date = new Date()
     let day = date.getDay()
     console.log(date)
     console.log(day)
     return (
-    <Paper>
-      <Tabs
-        value={this.state.value}
-        onChange={this.handleChange}
-        indicatorColor='primary'
-        textColor='primary'
-        centered
-      >
-        <Tab label={week[day] + ' (today)'} />
-        <Tab label={week[(day + 1) % 7] + ' (tomorrow)'} />
-        <Tab label={week[(day + 2) % 7]} />
-        <Tab label={week[(day + 3) % 7]} />
-        <Tab label={week[(day + 4) % 7]} />
-        <Tab label={week[(day + 5) % 7]} />
-        <Tab label={week[(day + 6) % 7]} />
-      </Tabs>
-      
-      {/* NEED TO FIGURE OUT HOW TO RENDER THE RIGHT GAMES IN THEIR RESPECTIVE TABS */}
-      {this.state.value === 0 && 
+      <Paper>
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor='primary'
+          textColor='primary'
+          variant='scrollable'
+        >
+          <Tab label='All Games' />
+          <Tab label={week[day] + ' (today)'} />
+          <Tab label={week[(day + 1) % 7] + ' (tom)'} />
+          <Tab label={week[(day + 2) % 7]} />
+          <Tab label={week[(day + 3) % 7]} />
+          <Tab label={week[(day + 4) % 7]} />
+          <Tab label={week[(day + 5) % 7]} />
+          <Tab label={week[(day + 6) % 7]} />
+        </Tabs>
+
+        {/* NEED TO FIGURE OUT HOW TO RENDER THE RIGHT GAMES IN THEIR RESPECTIVE TABS */}
+        {this.state.value === 0 &&
         this.props.gameData.map((data, index) => {
-          console.log(data)
           return (
             // MATCH DATE OF TODAY AND RENDER OUT THE GAMES
-            data.date === '03/22/2019' ? <List key={index}
-            title={data.title}
-            time={data.time}
-            date={data.date}
-            description={data.description}
-            joined={data.joined} /> : null
-            
+            <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} />
+
           )
         })}
-      {this.state.value === 1 && this.props.gameData.map((data, index) => {
-          console.log(data)
+        {this.state.value === 1 && this.props.gameData.map((data, index) => {
           return (
-          // MATCH DATE OF TOMORROW AND RENDER OUT THE GAMES...
-          data.date === '03/23/2019' ? <List key={index}
-          title={data.title}
-          time={data.time}
-          date={data.date}
-          description={data.description}
-          joined={data.joined} /> : null)
-         
+            data.day === 1 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
         })}
-      {this.state.value === 2 && <h2>hi</h2>}
-      {this.state.value === 3 && <h2>hi</h2>}
-      {this.state.value === 4 && <h2>hi</h2>}
-      {this.state.value === 5 && <h2>hi</h2>}
-      {this.state.value === 6 && <h2>hi</h2>}
-    </Paper>
-  )
+        {this.state.value === 2 && this.props.gameData.map((data, index) => {
+          return (
+            data.day === 2 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
+        })}{this.state.value === 3 && this.props.gameData.map((data, index) => {
+          return (
+            data.day === 3 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
+        })}{this.state.value === 4 && this.props.gameData.map((data, index) => {
+          return (
+            data.day === 4 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
+        })}{this.state.value === 5 && this.props.gameData.map((data, index) => {
+          return (
+            data.day === 5 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
+        })}{this.state.value === 6 && this.props.gameData.map((data, index) => {
+          return (
+            data.day === 6 ? <List key={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              joined={data.joined} /> : null)
+        })}
+      </Paper>
+    )
   }
 }
 
@@ -94,5 +126,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CenteredTabs)
-
-
