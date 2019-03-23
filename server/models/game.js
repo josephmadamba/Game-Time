@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Game = sequelize.define('Game', {
     date: DataTypes.STRING,
@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.STRING,
     title: DataTypes.STRING,
     description: DataTypes.STRING
-  }, {});
-  Game.associate = function(models) {
-    models.User.hasMany(Game, {foreignKey: 'user_id', sourceKey: 'id'})
-    Game.belongsTo(models.User, {foreignKey: 'user_id', sourceKey: 'id'})
-  };
-  return Game;
+  }, {})
+  Game.associate = function (models) {
+    models.User.hasMany(Game, { foreignKey: 'user_id', sourceKey: 'id' })
+    Game.belongsTo(models.User, { foreignKey: 'user_id', sourceKey: 'id' })
+  }
+  return Game
 };
