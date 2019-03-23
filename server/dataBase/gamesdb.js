@@ -27,11 +27,11 @@ module.exports = gamesdb
 
 
 
-function createGames(date, day, time. title, decription, userId){
+function createGames(date, day, time, title, description, userId){
     // THIS FUNCTION WILL RETURN A PROMISE
  return new Promise((resolve, reject)=>{
     //  BUILDING GAMES
-     db.Games.build({
+     db.Game.build({
          date: date,
          day: day,
          time: time,
@@ -53,13 +53,15 @@ function createGames(date, day, time. title, decription, userId){
 function getGames(){
     return new Promise((resolve, reject)=>{
         // FINDING GAMES AND ORDERING IT IN DESC ORDER SO WE GET THE NEWEST FIRST
-        db.Games.findAll({
+        db.Game.findAll({
             order: [["id", "DESC"]]
         })
         .then(games=>{
+  
             resolve(games)
         })
         .catch(er=>{
+            console.log('This is er', er)
             reject(er)
         })
     })

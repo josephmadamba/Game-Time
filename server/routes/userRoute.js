@@ -2,7 +2,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 const bodyParser = require('body-parser')
 router.use(bodyParser.json())
 router.use(
@@ -18,7 +17,6 @@ module.exports = router
 const userdb = require('../dataBase/userdb')
 const validator = require('email-validator')
 
-
 router.post('/pickup/create/user', (req, res) => {
   let user = req.body.user
   console.log(user)
@@ -32,7 +30,7 @@ router.post('/pickup/create/user', (req, res) => {
             .then(data => {
               if (data.created) {
                 res.send({ success: true, user: data.user.dataValues })
-              } else{
+              } else {
                 res.send({ success: false, error: 'User is already created' })
               }
             })
@@ -40,7 +38,7 @@ router.post('/pickup/create/user', (req, res) => {
               res.send({ success: false, error: er })
             })
         })
-    } else{
+    } else {
       res.send({ success: false, error: er })
     }
   }
@@ -54,7 +52,7 @@ router.get('/pickup/login', (req, res) => {
     .then(data => {
       if (data.correct) {
         res.send({ success: true, user: data.user })
-      } else{
+      } else {
         res.send({ success: false })
       }
     })
