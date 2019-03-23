@@ -25,6 +25,7 @@ module.exports = gamesdb
 
 function createGames (date, day, time, title, description, userId) {
   // THIS FUNCTION WILL RETURN A PROMISE
+
   return new Promise((resolve, reject) => {
     //  BUILDING GAMES
     db.Game.build({
@@ -37,6 +38,7 @@ function createGames (date, day, time, title, description, userId) {
     })
       .save()
       .then(resoluts => {
+
         resolve(resoluts)
       })
       .catch(er => {
