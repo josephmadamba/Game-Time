@@ -112,7 +112,7 @@ class CreateGames extends React.Component {
         let date = this.getDate()
         console.log('this is dayNum', dayNumber)
         console.log('date', date)
-        this.handleCreateGame()
+        this.handleCreateGame(date[0], dayNumber, date[1], this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
     
     
@@ -131,22 +131,23 @@ class CreateGames extends React.Component {
         return data
     }
 
-    handleCreateGame() {
+    handleCreateGame(date,day,time,title,description,user) {
+        axios
+            .post("/games/create/", {
+                date: date,
+                day: day,
+                time: time,
+                title: title,
+                description: description,
+                user:user
 
-        // const game = {
-        //     date: ,
-        //     day: 
-        //     //time: time,
-        //    // title: title,
-        //     //description: words,
-        //     //user: user,
-            
-
-
-
-        // }
-        
-        
+          })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(er=>{
+                console.log(er)
+            })
      
     }
     
