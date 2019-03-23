@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { number } from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -17,6 +17,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import TitleBar from "./TitleBar";
 import SubmitButton from "./SubmitButton";
+import { connect } from "react-redux";
+// import { WSAECONNREFUSED } from "constants";
 
 
 
@@ -105,35 +107,52 @@ class CreateGames extends React.Component {
   }
     
     handleSubmit(evt) {
-        console.log('hello')
-        evt.preventDefault()
+        evt.preventDefault();
+        let dayNumber = this.getDay()
+        let date = this.getDate()
+        console.log('this is dayNum', dayNumber)
+        console.log('date', date)
+        this.handleCreateGame()
     }
     
     
-    // handleGameName(evt) {
-    //     this.setState({ gameName: evt.target.value, gameNameEr: false });
-    // }
+    componentDidUpdate() {
+       
 
-    // handleGameAddress(evt) {
-    //     this.setState({ gameAddress: evt.target.value, gameAddressEr: false });
-    // }
-
-    // handleGameCity(evt) {
-    //     this.setState({ gameCity: evt.target.value, gameCityEr: false });
-    // }
+    }
     
-    // handleGameSt(evt) {
-    //     this.setState({ gameSt: evt.target.value, gameStEr: false });
-    // }
+    getDay() {
+        let day = this.state.startDate
+        return day.getUTCDay()
+    }
+    getDate() {
+        let str = JSON.stringify(this.state.startDate)
+        let data = str.split('T')
+        return data
+    }
 
-    // handleGameZip(evt) {
-    //     this.setState({ gameZip: evt.target.value, gameZipEr: false });
-    // }
+    handleCreateGame() {
 
-    // handleGameDesc(evt) {
-    //     this.setState({ gameDesc: evt.target.value, gameDescEr: false });
-    // }
-  
+        // const game = {
+        //     date: ,
+        //     day: 
+        //     //time: time,
+        //    // title: title,
+        //     //description: words,
+        //     //user: user,
+            
+
+
+
+        // }
+        
+        
+     
+    }
+    
+    
+ 
+    
   
 render() {
     const { classes } = this.props;
@@ -231,7 +250,7 @@ render() {
           variant="outlined"
         />
 
-      <DatePicker
+       <DatePicker
           selected={this.state.startDate}
           onChange={(e) => this.handleInput(e)}
           className={classes.textField}          
@@ -240,8 +259,9 @@ render() {
           timeIntervals={30}
           dateFormat="MMMM d, yyyy h:mm aa"
           timeCaption="time"
-      />
+      /> 
 
+        
             <Button
                 variant="contained"
                 className={classes.button}
@@ -262,4 +282,17 @@ CreateGames.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(CreateGames); 
+
+const mapStateToProps = state => ({
+    user : state.user
+});
+  
+
+const mapDispatchToProps = dispatch => ({
+
+  });
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withStyles(styles)(CreateGames)); 

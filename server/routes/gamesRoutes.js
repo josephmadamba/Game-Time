@@ -1,4 +1,5 @@
 
+
 const express = require('express')
 const router = express.Router()
 
@@ -19,7 +20,6 @@ router.post('/games/create/', (req, res) => {
   let input = req.body
   dbGames.createGames(input.date, input.day, input.time, input.title, input.description, input.user)
     .then(data => {
-      console.log(data)
       res.send({ success: true, data: data.dataValues })
     })
     .catch(er => {
@@ -37,3 +37,4 @@ router.get('/dashboard', (req, res) => {
       res.send({ success: false, er: er })
     })
 })
+
