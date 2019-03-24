@@ -19,7 +19,7 @@ const styles = theme => ({
 })
 
 function SimpleExpansionPanel (props) {
-  const { classes, title, date, time, description, joined } = props
+  const { classes, title, date, time, description, index, user } = props
   return (
     <div className={classes.root}>
       <ExpansionPanel>
@@ -31,7 +31,8 @@ function SimpleExpansionPanel (props) {
             time={time}
             date={date}
             description={description}
-            joined={joined} />
+            index={index}
+            user={user} />
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>

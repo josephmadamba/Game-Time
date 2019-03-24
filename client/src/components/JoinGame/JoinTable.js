@@ -19,9 +19,8 @@ const styles = theme => ({
     minWidth: 700
   }
 })
-// const { date, time, description, joined } = this.props
 
-function SimpleTable ({ classes, date, time, description, joined }) {
+function SimpleTable ({ classes, date, time, description, index, user }) {
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -30,7 +29,7 @@ function SimpleTable ({ classes, date, time, description, joined }) {
             <TableCell>Date</TableCell>
             <TableCell align='right'>Time</TableCell>
             <TableCell align='left'>Description</TableCell>
-            <TableCell align='left'># joined</TableCell>
+            <TableCell align='left'># index</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,7 +40,7 @@ function SimpleTable ({ classes, date, time, description, joined }) {
             </TableCell>
             <TableCell align='right'>{time}</TableCell>
             <TableCell align='left'>{description}</TableCell>
-            <TableCell align='left'>{joined}</TableCell>
+            <TableCell align='left'>{index}</TableCell>
             <TableCell align='right'>
               <Button variant='contained' color='primary' >
                   Join
