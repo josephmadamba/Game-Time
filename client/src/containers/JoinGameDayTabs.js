@@ -81,7 +81,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 1 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 1 ? <List key={index}
+              data.day === 0 ? <List key={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
@@ -91,7 +91,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 2 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 2 ? <List key={index}
+              data.day === 1 ? <List key={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
@@ -101,7 +101,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 3 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 3 ? <List key={index}
+              data.day === 2 ? <List key={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
@@ -111,7 +111,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 4 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 4 ? <List key={index}
+              data.day === 3 ? <List key={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
@@ -121,7 +121,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 5 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 5 ? <List key={index}
+              data.day === 4 ? <List key={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
@@ -129,6 +129,16 @@ class CenteredTabs extends React.Component {
                 joined={data.joined} /> : null)
           }) : null}
         {this.state.value === 6 &&
+        this.state.getGames ? this.props.gameData.map((data, index) => {
+            return (
+              data.day === 5 ? <List key={index}
+                title={data.title}
+                time={data.time}
+                date={data.date}
+                description={data.description}
+                joined={data.joined} /> : null)
+          }) : null}
+        {this.state.value === 7 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
               data.day === 6 ? <List key={index}
