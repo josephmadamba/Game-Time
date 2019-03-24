@@ -72,6 +72,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               />
             )
           })
@@ -85,6 +86,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 2 &&
@@ -96,6 +98,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 3 &&
@@ -107,6 +110,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 4 &&
@@ -118,6 +122,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 5 &&
@@ -129,6 +134,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 6 &&
@@ -140,6 +146,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
         {this.state.value === 7 &&
@@ -151,6 +158,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
+                id={data.id}
               /> : null)
           }) : null}
       </Paper>

@@ -20,7 +20,9 @@ const styles = theme => ({
   }
 })
 
-function SimpleTable ({ classes, date, time, description, index, user }) {
+function SimpleTable ({ classes, date, time, description, id, index, user }) {
+  console.log('game id', id)
+  console.log('user id', user.id)
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -42,9 +44,12 @@ function SimpleTable ({ classes, date, time, description, index, user }) {
             <TableCell align='left'>{description}</TableCell>
             <TableCell align='left'>{index}</TableCell>
             <TableCell align='right'>
-              <Button variant='contained' color='primary' >
+              {user.id ? <Button variant='contained' color='primary' >
                   Join
-              </Button></TableCell>
+              </Button> : <Button variant='contained' color='primary' href='./user/account'>
+                  Join
+              </Button>}
+            </TableCell>
           </TableRow>
 
         </TableBody>
