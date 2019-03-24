@@ -28,12 +28,13 @@ class CenteredTabs extends React.Component {
 
   componentDidMount () {
     this.setState({ getGames: false })
-    console.log(this.props.gameData)
+    console.log('this.props.gameData ', this.props.gameData)
     axios.get('/dashboard')
       .then(games => {
-        console.log('games', games.data.data)
+        console.log('games.data.data', games.data.data)
         this.props.updateGames(games.data.data)
-        console.log(this.props.gameData)
+        console.log('this.props.gameData ', this.props.gameData)
+        console.log('this.props.user ', this.props.user)
         this.setState({ getGames: true })
       })
   }
@@ -42,8 +43,8 @@ class CenteredTabs extends React.Component {
     let week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     let date = new Date()
     let day = date.getDay()
-    console.log(date)
-    console.log(day)
+    console.log('date is ', date)
+    console.log('day number is ', day)
     return (
       <Paper>
         <Tabs
@@ -62,81 +63,103 @@ class CenteredTabs extends React.Component {
           <Tab label={week[(day + 5) % 7]} />
           <Tab label={week[(day + 6) % 7]} />
         </Tabs>
-        {console.log('-----------------------')}
-        {console.log(this.state.value, this.state.getGames, this.props.gameData)}
-        {console.log('-----------------------')}
         {this.state.value === 0 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
-            console.log(this.props.gameData)
             return (
-              <List key={index}
+              <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} />
+                user={this.props.user}
+                id={data.id}
+              />
             )
           })
           : null}
         {this.state.value === 1 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 1 ? <List key={index}
+              data.day === 0 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
         {this.state.value === 2 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 2 ? <List key={index}
+              data.day === 1 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
         {this.state.value === 3 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 3 ? <List key={index}
+              data.day === 2 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
         {this.state.value === 4 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 4 ? <List key={index}
+              data.day === 3 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
         {this.state.value === 5 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 5 ? <List key={index}
+              data.day === 4 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
         {this.state.value === 6 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 6 ? <List key={index}
+              data.day === 5 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
-                joined={data.joined} /> : null)
+                user={this.props.user}
+                id={data.id}
+              /> : null)
+          }) : null}
+        {this.state.value === 7 &&
+        this.state.getGames ? this.props.gameData.map((data, index) => {
+            return (
+              data.day === 6 ? <List index={index}
+                title={data.title}
+                time={data.time}
+                date={data.date}
+                description={data.description}
+                user={this.props.user}
+                id={data.id}
+              /> : null)
           }) : null}
       </Paper>
     )
