@@ -39,3 +39,13 @@ router.get('/dashboard', (req, res) => {
     })
 })
 
+router.get('/user/games', (req, res)=>{
+  console.log(req.query.user)
+  dbGames.getAllPlayerJoined(parseInt(req.query.user))
+  .then(data=>{
+    res.send(data)
+  })
+  .catch(er=>{
+    res.send(er)
+  })
+})
