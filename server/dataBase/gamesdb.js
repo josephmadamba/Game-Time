@@ -1,4 +1,3 @@
-
 const express = require('express')
 const router = express.Router()
 
@@ -18,8 +17,10 @@ const saltRounds = 10
 const gamesdb = {
   // Reference functions I have down below
   createGames: createGames,
-  getGames: getGames
-
+  getGames: getGames,
+  getAllPlayerJoined: getAllPlayerJoined,
+  addMyGames,
+  getMyGames
 }
 module.exports = gamesdb
 
@@ -38,7 +39,6 @@ function createGames (date, day, time, title, description, userId) {
     })
       .save()
       .then(resoluts => {
-
         resolve(resoluts)
       })
       .catch(er => {
@@ -55,6 +55,66 @@ function getGames () {
     })
       .then(games => {
         console.log('games', games)
+        resolve(games)
+      })
+      .catch(er => {
+        console.log('This is er', er)
+        reject(er)
+      })
+  })
+}
+
+function getAllPlayerJoined (user_id) {
+  return new Promise((resolve, reject) => {
+    db.GameJoinedUser.findAll({
+      where: {
+        user_id: user_id
+      },
+      order: [['id', 'DESC']]
+    })
+      .then(res => {
+        console.log(
+          '------------------------------------------------------------'
+        )
+        console.log(
+          'This should be the results from getAllPlayersJoined',
+          res.dataValues
+        )
+
+        resolve(res)
+      })
+      .catch(er => {
+        console.log('This is the error', er)
+        reject(er)
+      })
+  })
+}
+
+function addMyGames (userID, gameID) {
+  return new Promise((resolve, reject) => {
+    db.GameJoinedUser.create({
+      user_id: userID,
+      game_id: gameID
+    })
+      .then(resoluts => {
+        resolve(resoluts)
+      })
+      .catch(er => {
+        console.log('This is the error', er)
+        reject(er)
+      })
+  })
+}
+
+function getMyGames (userID) {
+  return new Promise((resolve, reject) => {
+    console.log('this is userID in getMygames ', userID)
+    db.GameJoinedUser.findAll({
+      where: { user_id: userID },
+      order: [['id', 'DESC']]
+    })
+      .then(games => {
+        console.log('games=========================================================================', games)
         resolve(games)
       })
       .catch(er => {

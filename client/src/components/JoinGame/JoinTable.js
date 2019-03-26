@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
 
 const styles = theme => ({
   root: {
@@ -21,8 +22,6 @@ const styles = theme => ({
 })
 
 function SimpleTable ({ classes, date, time, description, id, index, user }) {
-  console.log('game id', id)
-  console.log('user id', user.id)
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -44,14 +43,19 @@ function SimpleTable ({ classes, date, time, description, id, index, user }) {
             <TableCell align='left'>{description}</TableCell>
             <TableCell align='left'>{index}</TableCell>
             <TableCell align='right'>
-              {user.id ? <Button variant='contained' color='primary' >
+              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID) => {
+                console.log('clicked')
+                axios.post('/mygames', {
+                  userID: user.id,
+                  gameID: id
+                })
+              }} >
                   Join
               </Button> : <Button variant='contained' color='primary' href='./user/account'>
                   Join
               </Button>}
             </TableCell>
           </TableRow>
-
         </TableBody>
       </Table>
     </Paper>
