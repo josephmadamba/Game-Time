@@ -29,6 +29,12 @@ router.post('/games/create/', (req, res) => {
 router.get('/dashboard', (req, res) => {
   dbGames.getGames()
     .then(data => {
+      // Deletes games that are expired
+      data.map((games, index) => {
+        if (Date.parse(games.dataValues.date) < Date.parse(new Date())) {
+          return data[index].destroy()
+        }
+      })
       res.send({ success: true, data: data })
     })
     .catch(er => {
@@ -38,7 +44,6 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.post('/mygames', (req, res) => {
-  console.log(req.body)
   dbGames.addMyGames(req.body.userID, req.body.gameID)
     .then(data => {
       res.send({ success: true, data: data })
@@ -49,8 +54,7 @@ router.post('/mygames', (req, res) => {
 })
 
 router.get('/mygames', (req, res) => {
-  console.log('req.body.userID ', req.body.userID)
-  dbGames.getMyGames(req.body.userID)
+  dbGames.getAllPlayerJoined(parseInt(req.query.user))
     .then(data => {
       console.log('data in router ', data)
       res.send({ success: true, data: data })
