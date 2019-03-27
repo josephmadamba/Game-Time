@@ -17,16 +17,17 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "2.1.8",
+    "react-spinners": "^0.5.3",
     "redux": "^4.0.0",
     "serve":"^9.4.0"
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"

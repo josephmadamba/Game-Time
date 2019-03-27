@@ -18,6 +18,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import TitleBar from "./TitleBar";
 import SubmitButton from "./SubmitButton";
 import { connect } from "react-redux";
+import SuccessCreate from "./SuccessCreate";
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners';
+import '../styles/loading.css'
+// import { WSAECONNREFUSED } from "constants";
 
 
 
@@ -28,6 +33,11 @@ import { connect } from "react-redux";
 
 
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 
 const styles = theme => ({
@@ -86,6 +96,7 @@ class CreateGames extends React.Component {
             gameZipEr: false,
             gameDesc: '',
             gameDescEr: false,
+            submit: false
     
         };
     
@@ -105,13 +116,17 @@ class CreateGames extends React.Component {
     });
   }
     
+
+
+
     handleSubmit(evt) {
+      this.setState({submit: true})
         evt.preventDefault();
         let dayNumber = this.getDay()
         let date = this.getDate()
         console.log('this is dayNum', dayNumber)
         console.log('date', date)
-        this.handleCreateGame(date[1], dayNumber, date[2], this.state.gameName, this.state.gameDesc, this.props.user.id )
+        this.handleCreateGame(date[1], dayNumber, date[2].slice(0,5), this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
     
     
@@ -128,8 +143,10 @@ class CreateGames extends React.Component {
         let str = JSON.stringify(this.state.startDate)
         console.log('This is str from getData', str)
         let string = str.replace('"', 'T')
+        console.log(string)
         let data = string.split('T')
         console.log(data)
+
         return data
     }
 
@@ -145,7 +162,11 @@ class CreateGames extends React.Component {
 
           })
             .then(res => {
-                console.log(res)
+                console.log(res.data)
+                if(res.data.success){
+                  this.setState({submit: false})
+                  this.props.history.push('/dashboard')
+                }
             })
             .catch(er=>{
                 console.log(er)
@@ -154,9 +175,10 @@ class CreateGames extends React.Component {
     }
     
     componentDidUpdate(){
-      this.getDate()
+
     }
  
+
     
   
 render() {
@@ -164,7 +186,18 @@ render() {
 
     return (
       <div>
-            <form className={classes.container} noValidate autoComplete="off" onSubmit={(evt)=>{this.handleSubmit(evt)}}>
+
+        {this.state.submit?   <div className='loadinClip'><ClipLoader
+  css={override}
+  sizeUnit={"px"}
+  size={150}
+  color={'#123abc'}
+  loading={this.state.loading}
+/> 
+</div>:
+        
+
+          <form className={classes.container} noValidate autoComplete="off" onSubmit={(evt)=>{this.handleSubmit(evt)}}>
         
           <TitleBar/>
           
@@ -278,7 +311,9 @@ render() {
 
         
         </form>
+}
         </div>
+        
     );
   }
 }

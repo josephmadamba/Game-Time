@@ -53,8 +53,8 @@ class CenteredTabs extends React.Component {
           <Tab label="About" />
         </Tabs>
         {this.state.value === 0 && <TabContainer><JoinGameDayTabs/></TabContainer>}
-        {this.state.value === 1 && <TabContainer><CreateGames/></TabContainer>}
-        {this.state.value === 2 && <TabContainer><MyGamesTab /></TabContainer>}
+        {this.state.value === 1 && <TabContainer><CreateGames history={this.props.history}/></TabContainer>}
+        {this.state.value === 2 && <TabContainer><MyGamesTab/></TabContainer>}
         {this.state.value === 3 && <TabContainer>FAQ</TabContainer>}
         {this.state.value === 4 && <TabContainer>About</TabContainer>}
     </Paper>
