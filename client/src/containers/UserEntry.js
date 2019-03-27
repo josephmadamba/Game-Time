@@ -123,7 +123,10 @@ class UserEntry extends Component {
         } else {
           this.setState({ usernameErr: true, emailErr: true });
         }
-      });
+      })
+      .catch(er=>{
+        console.log(er)
+      })
   }
 
   handleUserLogin(evt) {
@@ -141,7 +144,10 @@ class UserEntry extends Component {
         } else {
           this.setState({ userLogEr: true, passLogEr: true });
         }
-      });
+      })
+      .catch(er=>{
+        console.log(er)
+      })
   }
 
   render() {
