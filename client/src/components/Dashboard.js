@@ -2,11 +2,11 @@ import React from 'react'
 import NavBar from './NavBar'
 import Tabs from './Tabs'
 
-const Dashboard = () => {
+const Dashboard = ({history}) => {
   return (
     <div>
       <NavBar />
-      <Tabs />
+      <Tabs history={history}/>
     </div>
   )
 }
