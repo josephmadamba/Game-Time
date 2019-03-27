@@ -71,6 +71,7 @@ function getAllPlayerJoined (user_id) {
         user_id: user_id
       },
       order: [['id', 'DESC']]
+      // include: [{ model: db.Game }]
     })
       .then(res => {
         console.log(
@@ -111,7 +112,8 @@ function getMyGames (userID) {
     console.log('this is userID in getMygames ', userID)
     db.GameJoinedUser.findAll({
       where: { user_id: userID },
-      order: [['id', 'DESC']]
+      order: [['id', 'DESC']],
+      include: [{ model: db.Game }]
     })
       .then(games => {
         console.log('games=========================================================================', games)
