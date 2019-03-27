@@ -56,4 +56,7 @@ router.get('/pickup/login', (req, res) => {
         res.send({ success: false })
       }
     })
+    .catch(er=>{
+      res.send({ success: false, error: er })
+    })
 })
