@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {})
   GameJoinedUser.associate = function (models) {
     // associations can be defined here
-    models.User.belongsToMany(models.Game, { through: GameJoinedUser })
-    models.Game.belongsToMany(models.User, { through: GameJoinedUser })
+    models.User.belongsToMany(models.Game, { through: GameJoinedUser, onDelete: 'cascade' })
+    models.Game.belongsToMany(models.User, { through: GameJoinedUser, onDelete: 'cascade' })
   }
   return GameJoinedUser
 };
