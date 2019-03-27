@@ -163,7 +163,12 @@ class CreateGames extends React.Component {
             .then(res => {
                 console.log(res.data)
                 if(res.data.success){
-                  this.setState({submit: false})
+                  
+
+
+                    this.setState({submit: false});
+
+                  console.log(this.props)
                   this.props.history.push('/dashboard')
                 }
             })
@@ -172,11 +177,12 @@ class CreateGames extends React.Component {
             })
      
     }
-    
-    componentDidUpdate(){
 
-    }
- 
+
+    
+
+
+
 
     
   
