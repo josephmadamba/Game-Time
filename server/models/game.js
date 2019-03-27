@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   }, {})
   Game.associate = function (models) {
-    models.User.hasMany(Game, { foreignKey: 'user_id', sourceKey: 'id' })
-    Game.belongsTo(models.User, { foreignKey: 'user_id', sourceKey: 'id' })
+    models.User.hasMany(Game, { foreignKey: 'user_id', sourceKey: 'id', onDelete: 'cascade', hooks: true })
+    Game.belongsTo(models.User, { foreignKey: 'user_id', sourceKey: 'id', onDelete: 'cascade', hooks: true})
 
     Game.belongsToMany(models.User,{
       through: 'GameJoinedUser',

@@ -16,11 +16,11 @@ class MyGames extends React.Component {
   componentDidMount () {
     this.setState({ getGames: false })
     console.log('this.props.gameData ', this.props.myGames)
-    axios.get('/mygames')
+    axios.get('/mygames' ,{params: {user: this.props.user.id}})
       .then(games => {
         console.log('this.props.user', this.props.user)
         console.log('myGames', games)
-        // this.props.addMyGames(this.props.user.id, ga)
+        this.props.addMyGames(this.props.user.id, games.data.data)
         this.setState({ getGames: true })
       })
   }
