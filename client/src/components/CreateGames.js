@@ -112,7 +112,7 @@ class CreateGames extends React.Component {
         let date = this.getDate()
         console.log('this is dayNum', dayNumber)
         console.log('date', date)
-        this.handleCreateGame(date[1], dayNumber, date[2], this.state.gameName, this.state.gameDesc, this.props.user.id )
+        this.handleCreateGame(date[1], dayNumber, date[2].slice(0,5), this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
     
     
@@ -129,8 +129,10 @@ class CreateGames extends React.Component {
         let str = JSON.stringify(this.state.startDate)
         console.log('This is str from getData', str)
         let string = str.replace('"', 'T')
+        console.log(string)
         let data = string.split('T')
         console.log(data)
+
         return data
     }
 
@@ -155,7 +157,7 @@ class CreateGames extends React.Component {
     }
     
     componentDidUpdate(){
-      this.getDate()
+
     }
  
     
