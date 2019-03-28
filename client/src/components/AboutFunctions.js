@@ -3,7 +3,7 @@ import React from "react";
 export const purpose = () => (
   <React.Fragment>
     <p>
-      The purpose of PickUpe.com is to help people find and play pickup
+      The purpose of PickUp.com is to help people find and play pickup
       basketball games. We wanted to create a place where people looking for
       games could find accurate, up-to-date information and game coordinators
       could easily publish that information. We also wanted to create a way for
