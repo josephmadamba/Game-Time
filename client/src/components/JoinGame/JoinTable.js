@@ -21,7 +21,7 @@ const styles = theme => ({
   }
 })
 
-function SimpleTable ({ classes, date, time, description, id, index, user }) {
+function SimpleTable ({ classes, date, time, description, id, index, user, title }) {
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -43,11 +43,15 @@ function SimpleTable ({ classes, date, time, description, id, index, user }) {
             <TableCell align='left'>{description}</TableCell>
             <TableCell align='left'>{index}</TableCell>
             <TableCell align='right'>
-              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID) => {
-                console.log('clicked')
+              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) => {
+                console.log('clicked', date, description, time, id, user.id)
                 axios.post('/mygames', {
                   userID: user.id,
-                  gameID: id
+                  gameID: id,
+                  dateJoin: date,
+                  timeJoin: time,
+                  titleJoin: title,
+                  descriptionJoin: description
                 })
               }} >
                   Join

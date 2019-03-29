@@ -6,8 +6,7 @@ const myGameReducer = (state = myGameState, action) => {
 
   switch (action.type) {
     case 'ADD_MY_GAME':
-      const { gameID } = action
-      newState = gameID
+      newState = action.payload
       return newState
     default:
       return state

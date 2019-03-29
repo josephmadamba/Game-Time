@@ -91,11 +91,15 @@ function getAllPlayerJoined (user_id) {
   })
 }
 
-function addMyGames (userID, gameID) {
+function addMyGames (userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) {
   return new Promise((resolve, reject) => {
     db.GameJoinedUser.create({
       user_id: userID,
-      game_id: gameID
+      game_id: gameID,
+      date: dateJoin,
+      time: timeJoin,
+      title: titleJoin,
+      description: descriptionJoin
     })
       .then(resoluts => {
         resolve(resoluts)

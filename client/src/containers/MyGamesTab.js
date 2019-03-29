@@ -26,8 +26,9 @@ class MyGames extends React.Component {
   }
 
   render () {
+    console.log(this.props.myGames)
     return (
-      this.props.myGames.map((data, index) => {
+      this.props.myGames.userID.map((data, index) => {
         console.log(data)
 
         return (
@@ -51,9 +52,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addMyGames: (gameID) => dispatch({
+  addMyGames: (payload) => dispatch({
     type: 'ADD_MY_GAME',
-    gameID
+    payload
   })
 })
 

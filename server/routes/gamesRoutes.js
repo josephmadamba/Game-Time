@@ -44,7 +44,13 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.post('/mygames', (req, res) => {
-  dbGames.addMyGames(req.body.userID, req.body.gameID)
+  dbGames.addMyGames(
+    req.body.userID,
+    req.body.gameID,
+    req.body.dateJoin,
+    req.body.timeJoin,
+    req.body.titleJoin,
+    req.body.descriptionJoin)
     .then(data => {
       res.send({ success: true, data: data })
     })
@@ -62,16 +68,5 @@ router.get('/mygames', (req, res) => {
     .catch(er => {
       console.log(er)
       res.send({ success: false, er: er })
-    })
-})
-
-router.get('/user/games', (req, res) => {
-  console.log(req.query.user)
-  dbGames.getAllPlayerJoined(parseInt(req.query.user))
-    .then(data => {
-      res.send(data)
-    })
-    .catch(er => {
-      res.send(er)
     })
 })
