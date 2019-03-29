@@ -31,7 +31,11 @@ router.get('/api/dashboard', (req, res) => {
     .then(data => {
       // Deletes games that are expired
       data.map((games, index) => {
-        if (Date.parse(games.dataValues.date) < Date.parse(new Date())) {
+        let dateAndTime = games.dataValues.date+'T'+games.dataValues.time
+        // console.log('---------------------------------')
+        // console.log('This is the date' ,new Date(),games.dataValues.date, Date.parse(games.dataValues.date), Date.parse(dateAndTime))
+        // console.log('---------------------------------')
+        if (Date.parse(dateAndTime) < Date.parse(new Date())) {
           return data[index].destroy()
         }
       })

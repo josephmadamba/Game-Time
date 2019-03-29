@@ -124,20 +124,19 @@ class CreateGames extends React.Component {
         evt.preventDefault();
         let dayNumber = this.getDay()
         let date = this.getDate()
-        console.log('this is dayNum', dayNumber)
-        console.log('date', date)
+        
         this.handleCreateGame(date[1], dayNumber, date[2].slice(0,5), this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
     
     
     componentDidUpdate() {
-       
+
 
     }
     
     getDay() {
         let day = this.state.startDate
-        return day.getUTCDay()
+        return ((day.getUTCDay()+6)%7)
     }
     getDate() {
         let str = JSON.stringify(this.state.startDate)
