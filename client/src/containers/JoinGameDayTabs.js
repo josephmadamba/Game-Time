@@ -73,6 +73,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               />
             )
           })
@@ -87,6 +88,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 2 &&
@@ -99,6 +101,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 3 &&
@@ -111,6 +114,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 4 &&
@@ -123,6 +127,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 5 &&
@@ -135,6 +140,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 6 &&
@@ -147,6 +153,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 7 &&
@@ -159,6 +166,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
       </Paper>

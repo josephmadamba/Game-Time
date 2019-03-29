@@ -36,6 +36,7 @@ class MyGames extends React.Component {
             description={data.description}
             user={this.props.user}
             id={data.id}
+            button='Cancel'
           />
         )
       })
