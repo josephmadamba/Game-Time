@@ -21,8 +21,7 @@ const styles = theme => ({
   }
 })
 
-function SimpleTable ({ classes, date, time, description, id, index, user, title, button }) {
-  console.log(user)
+function SimpleTable ({ myGames, classes, date, time, description, gameid, index, user, title, button, addMyGames }) {
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -46,11 +45,10 @@ function SimpleTable ({ classes, date, time, description, id, index, user, title
             <TableCell align='right'>
               {user.id
                 ? button === 'Join'
-                  ? <Button variant='contained' color='primary' onClick={(userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) => {
-                    console.log('clicked', date, description, time, id, user.id)
+                  ? <Button variant='contained' color='primary' onClick={() => {
                     axios.post('/mygames', {
                       userID: user.id,
-                      gameID: id,
+                      gameID: gameid,
                       dateJoin: date,
                       timeJoin: time,
                       titleJoin: title,
@@ -59,14 +57,26 @@ function SimpleTable ({ classes, date, time, description, id, index, user, title
                   }} >
                     {button}
                   </Button>
-                  : <Button variant='contained' color='primary' onClick={(index) => {
-                    console.log(index)
-                    axios.delete('/api/delete/game', {
-                      index
+                  : <Button variant='contained' color='primary' onClick={() => {
+                    axios.delete('/api/delete/games', {
+                      data: {
+                        user_id: user.id,
+                        game_id: gameid
+                      }
                     })
+                      .then(() => {
+                        axios.get('/mygames', { params: { user: user.id } })
+                          .then(games => {
+                            addMyGames(games.data.data)
+                          })
+                      })
+                      .catch(error => {
+                        console.log(error)
+                      })
                   }} >
                       Cancel
                   </Button>
+
                 : <Button variant='contained' color='primary' href='./user/account'>
                   {button}
                 </Button>}

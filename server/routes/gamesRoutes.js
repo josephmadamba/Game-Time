@@ -31,7 +31,7 @@ router.get('/api/dashboard', (req, res) => {
     .then(data => {
       // Deletes games that are expired
       data.map((games, index) => {
-        let dateAndTime = games.dataValues.date+'T'+games.dataValues.time
+        let dateAndTime = games.dataValues.date + 'T' + games.dataValues.time
         // console.log('---------------------------------')
         // console.log('This is the date' ,new Date(),games.dataValues.date, Date.parse(games.dataValues.date), Date.parse(dateAndTime))
         // console.log('---------------------------------')
@@ -75,17 +75,17 @@ router.get('/mygames', (req, res) => {
     })
 })
 
-
-router.delete('/api/delete/games', (req,res)=>{
-  console.log(req.query)
-  let id = req.query.id
-  dbGames.deleteGames(id)
-  .then(data=>{
-    console.log('----------')
-    console.log(data)
-    res.send(data)
-  })
-  .catch(er=>{
-    console.log(er)
-  })
+router.delete(`/api/delete/games`, (req, res) => {
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', req)
+  let game_id = req.body.game_id
+  let user_id = req.body.user_id
+  dbGames.deleteGames(user_id, game_id)
+    .then(data => {
+      console.log('----------')
+      console.log(data)
+      res.send(data)
+    })
+    .catch(er => {
+      console.log(er)
+    })
 })

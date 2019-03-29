@@ -9,9 +9,6 @@ const myGameReducer = (state = myGameState, action) => {
       console.log('payload', action.payload)
       newState = action.payload
       return newState
-    case 'DELETE_MY_GAME':
-      newState = action.payload
-      return newState
     default:
       return state
   }

@@ -31,7 +31,6 @@ class CenteredTabs extends React.Component {
     console.log('this.props.gameData ', this.props.gameData)
     axios.get('/api/dashboard')
       .then(games => {
-
         this.props.updateGames(games.data.data)
         this.setState({ getGames: true })
       })
@@ -50,11 +49,11 @@ class CenteredTabs extends React.Component {
           textColor='primary'
           variant='scrollable'
         >
-{console.log(day, (day + 1) % 7, (day + 2) % 7, (day + 3) % 7 ,(day + 4) % 7 , (day + 5) % 7, (day + 6) % 7)}
+          {console.log(day, (day + 1) % 7, (day + 2) % 7, (day + 3) % 7, (day + 4) % 7, (day + 5) % 7, (day + 6) % 7)}
           <Tab label='All Games' />
           <Tab label={week[day] + ' (today)'} />
           <Tab label={week[(day + 1) % 7] + ' (tom)'} />
-          <Tab label={week[(day + 2) % 7]}/>
+          <Tab label={week[(day + 2) % 7]} />
           <Tab label={week[(day + 3) % 7]} />
           <Tab label={week[(day + 4) % 7]} />
           <Tab label={week[(day + 5) % 7]} />
@@ -62,6 +61,7 @@ class CenteredTabs extends React.Component {
         </Tabs>
         {this.state.value === 0 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
+            console.log(data)
             return (
               <List index={index}
                 title={data.title}
@@ -69,7 +69,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               />
             )
@@ -84,7 +84,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -97,7 +97,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -110,7 +110,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -123,7 +123,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -136,7 +136,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -149,7 +149,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}
@@ -162,7 +162,7 @@ class CenteredTabs extends React.Component {
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
-                id={data.id}
+                gameid={data.id}
                 button='Join'
               /> : null)
           }) : null}

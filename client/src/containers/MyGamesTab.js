@@ -35,8 +35,9 @@ class MyGames extends React.Component {
             date={data.date}
             description={data.description}
             user={this.props.user}
-            id={data.id}
-
+            gameid={data.game_id}
+            addMyGames={this.props.addMyGames}
+            myGames={this.props.myGames.length}
           />
         )
       })
@@ -53,12 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
   addMyGames: (payload) => dispatch({
     type: 'ADD_MY_GAME',
     payload
-  }),
-  deleteMyGames: (payload) => dispatch({
-    type: 'DELETE_MY_GAME',
-    payload
   })
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyGames)
