@@ -1,18 +1,18 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const bodyParser = require("body-parser");
-router.use(bodyParser.json());
+const bodyParser = require('body-parser')
+router.use(bodyParser.json())
 router.use(
   bodyParser.urlencoded({
     extended: false
   })
-);
+)
 
-const db = require("../models");
+const db = require('../models')
 
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 const gamesdb = {
   // Reference functions I have down below
@@ -20,12 +20,11 @@ const gamesdb = {
   getGames: getGames,
   getAllPlayerJoined: getAllPlayerJoined,
   addMyGames,
-  getMyGames,
   deleteGames
-};
-module.exports = gamesdb;
+}
+module.exports = gamesdb
 
-function createGames(date, day, time, title, description, userId) {
+function createGames (date, day, time, title, description, userId) {
   // THIS FUNCTION WILL RETURN A PROMISE
 
   return new Promise((resolve, reject) => {
@@ -40,56 +39,54 @@ function createGames(date, day, time, title, description, userId) {
     })
       .save()
       .then(resoluts => {
-        resolve(resoluts);
+        resolve(resoluts)
       })
       .catch(er => {
-        reject(er);
-      });
-  });
+        reject(er)
+      })
+  })
 }
 
-function getGames() {
+function getGames () {
   return new Promise((resolve, reject) => {
     // FINDING GAMES AND ORDERING IT IN DESC ORDER SO WE GET THE NEWEST FIRST
     db.Game.findAll({
-      order: [["id", "DESC"]]
+      order: [['id', 'DESC']]
     })
       .then(games => {
-        console.log("games", games);
-        resolve(games);
+        console.log('games', games)
+        resolve(games)
       })
       .catch(er => {
-        console.log("This is er", er);
-        reject(er);
-      });
-  });
+        console.log('This is er', er)
+        reject(er)
+      })
+  })
 }
 
-function getAllPlayerJoined(user_id) {
+function getAllPlayerJoined (user_id) {
   return new Promise((resolve, reject) => {
     db.GameJoinedUser.findAll({
       where: {
         user_id: user_id
       },
-      order: [["id", "DESC"]]
-      // include: [{ model: db.Game }]
+      order: [['id', 'DESC']]
     })
       .then(res => {
         console.log(
-          "This should be the results from getAllPlayersJoined",
+          'This should be the results from getAllPlayersJoined',
           res.dataValues
-        );
-
-        resolve(res);
+        )
+        resolve(res)
       })
       .catch(er => {
-        console.log("This is the error", er);
-        reject(er);
-      });
-  });
+        console.log('This is the error', er)
+        reject(er)
+      })
+  })
 }
 
-function addMyGames(
+function addMyGames (
   userID,
   gameID,
   dateJoin,
@@ -107,50 +104,34 @@ function addMyGames(
       description: descriptionJoin
     })
       .then(resoluts => {
-        resolve(resoluts);
+        resolve(resoluts)
       })
       .catch(er => {
-        console.log("This is the error", er);
-        reject(er);
-      });
-  });
+        console.log('This is the error', er)
+        reject(er)
+      })
+  })
 }
 
-function getMyGames(userID) {
+function deleteGames (user_id, game_id) {
   return new Promise((resolve, reject) => {
-    console.log("this is userID in getMygames ", userID);
     db.GameJoinedUser.findAll({
-      where: { user_id: userID },
-      order: [["id", "DESC"]],
-      include: [{ model: db.Game }]
+      where: { user_id: user_id,
+        game_id: game_id
+      }
     })
-      .then(games => {
-        resolve(games);
+      .then(res => {
+        console.log(res[0])
+        res[0].destroy().then(data => {
+          console.log(data)
+          resolve({ success: true })
+        })
+          .catch(er => {
+            reject({ success: false, error: er })
+          })
       })
       .catch(er => {
-        console.log("This is er", er);
-        reject(er);
-      });
-  });
-}
-
-function deleteGames(id) {
-  return new Promise((resolve, reject) => {
-    db.GameJoinedUser.findAll({
-      where: { id: id }
-    })
-    .then(res=>{
-      console.log(res[0])
-      res[0].destroy().then(data=>{
-        console.log(data)
-        resolve({success: true})
+        reject({ success: false, error: er })
       })
-      .catch(er=>{
-        reject({success: false, error: er})
-      })
-    })
-    .catch(er=>{
-      reject({success: false, error: er})
-    })
-  });
+  })
 }
