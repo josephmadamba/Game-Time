@@ -26,11 +26,8 @@ class MyGames extends React.Component {
   }
 
   render () {
-    console.log(this.props.myGames)
     return (
-      this.props.myGames.userID.map((data, index) => {
-        console.log(data)
-
+      this.props.myGames.map((data, index) => {
         return (
           <List index={index}
             title={data.title}
