@@ -74,3 +74,18 @@ router.get('/mygames', (req, res) => {
       res.send({ success: false, er: er })
     })
 })
+
+
+router.delete('/api/delete/games', (req,res)=>{
+  console.log(req.query)
+  let id = req.query.id
+  dbGames.deleteGames(id)
+  .then(data=>{
+    console.log('----------')
+    console.log(data)
+    res.send(data)
+  })
+  .catch(er=>{
+    console.log(er)
+  })
+})
