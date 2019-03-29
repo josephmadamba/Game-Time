@@ -44,21 +44,33 @@ function SimpleTable ({ classes, date, time, description, id, index, user, title
             <TableCell align='left'>{description}</TableCell>
             <TableCell align='left'>{user.username}</TableCell>
             <TableCell align='right'>
-              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) => {
-                console.log('clicked', date, description, time, id, user.id)
-                axios.post('/mygames', {
-                  userID: user.id,
-                  gameID: id,
-                  dateJoin: date,
-                  timeJoin: time,
-                  titleJoin: title,
-                  descriptionJoin: description
-                })
-              }} >
-                {button}
-              </Button> : <Button variant='contained' color='primary' href='./user/account'>
-                {button}
-              </Button>}
+              {user.id
+                ? button === 'Join'
+                  ? <Button variant='contained' color='primary' onClick={(userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) => {
+                    console.log('clicked', date, description, time, id, user.id)
+                    axios.post('/mygames', {
+                      userID: user.id,
+                      gameID: id,
+                      dateJoin: date,
+                      timeJoin: time,
+                      titleJoin: title,
+                      descriptionJoin: description
+                    })
+                  }} >
+                    {button}
+                  </Button>
+                  : <Button variant='contained' color='primary' onClick={(index) => {
+                    console.log(index)
+                    axios.delete('/api/delete_game', {
+                      index
+                    })
+                  }} >
+                      Cancel
+                  </Button>
+                : <Button variant='contained' color='primary' href='./user/account'>
+                  {button}
+                </Button>}
+
             </TableCell>
           </TableRow>
         </TableBody>
