@@ -61,7 +61,7 @@ function SimpleTable ({ classes, date, time, description, id, index, user, title
                   </Button>
                   : <Button variant='contained' color='primary' onClick={(index) => {
                     console.log(index)
-                    axios.delete('/api/delete_game', {
+                    axios.delete('/api/delete/game', {
                       index
                     })
                   }} >
