@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import JoinGameDayTabs from '../containers/JoinGameDayTabs'
 import CreateGames from './CreateGames'
 import MyGamesTab from '../containers/MyGamesTab'
+import About from './About';
 
 function TabContainer(props) {
   console.log(props)
@@ -56,7 +57,7 @@ class CenteredTabs extends React.Component {
         {this.state.value === 1 && <TabContainer><CreateGames history={this.props.history}/></TabContainer>}
         {this.state.value === 2 && <TabContainer><MyGamesTab/></TabContainer>}
         {this.state.value === 3 && <TabContainer>FAQ</TabContainer>}
-        {this.state.value === 4 && <TabContainer>About</TabContainer>}
+        {this.state.value === 4 && <TabContainer><About/></TabContainer>}
     </Paper>
     );
   }

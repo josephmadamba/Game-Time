@@ -29,7 +29,7 @@ class CenteredTabs extends React.Component {
   componentDidMount () {
     this.setState({ getGames: false })
     console.log('this.props.gameData ', this.props.gameData)
-    axios.get('/dashboard')
+    axios.get('/api/dashboard')
       .then(games => {
         console.log('games.data.data', games.data.data)
         this.props.updateGames(games.data.data)

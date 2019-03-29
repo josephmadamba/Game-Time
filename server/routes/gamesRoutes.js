@@ -26,7 +26,7 @@ router.post('/games/create/', (req, res) => {
     })
 })
 
-router.get('/dashboard', (req, res) => {
+router.get('/api/dashboard', (req, res) => {
   dbGames.getGames()
     .then(data => {
       // Deletes games that are expired
