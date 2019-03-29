@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && node start",
     "server": "nodemon server/server.js",
-    "dev": "concurrently --kill-others-on-fail \"node server\" \"node client\""
+    "dev": "concurrently --kill-others-on-fail \"node server\" \"node client\"",
+    "start": "node server/server.js",
+    "heroku-postbuild": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -31,12 +33,13 @@
     "material-ui": "^0.20.2",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
-    "sequelize": "4.42.0",
+    "sequelize": "^4.43.0",
+    "sequelize-heroku": "^2.0.0",
     "sequelize-views-support": "^1.2.2",
     "serve": "^10.1.2"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
-    "sequelize-cli": "5.4.0"
+    "sequelize-cli": "^5.4.0"
   }
 }

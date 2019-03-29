@@ -19,13 +19,14 @@ app.get('*', (req, res) => {
   
   
 // Handles unknown routes
-app.use((req, res, next) => {
-  const err = new Error("Not Found");
-  err.status = 404;
-  console.log(err);
-  res.send("404: Page Not Found");
-  next(err);
-});
+// Will add in the future
+// app.use((req, res, next) => {
+//   const err = new Error("Not Found");
+//   err.status = 404;
+//   console.log(err);
+//   res.send("404: Page Not Found");
+//   next(err);
+// });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

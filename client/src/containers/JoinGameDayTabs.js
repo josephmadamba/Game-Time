@@ -31,10 +31,8 @@ class CenteredTabs extends React.Component {
     console.log('this.props.gameData ', this.props.gameData)
     axios.get('/api/dashboard')
       .then(games => {
-        console.log('games.data.data', games.data.data)
+
         this.props.updateGames(games.data.data)
-        console.log('this.props.gameData ', this.props.gameData)
-        console.log('this.props.user ', this.props.user)
         this.setState({ getGames: true })
       })
   }
@@ -43,8 +41,6 @@ class CenteredTabs extends React.Component {
     let week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     let date = new Date()
     let day = date.getDay()
-    console.log('date is ', date)
-    console.log('day number is ', day)
     return (
       <Paper>
         <Tabs
@@ -54,10 +50,11 @@ class CenteredTabs extends React.Component {
           textColor='primary'
           variant='scrollable'
         >
+{console.log(day, (day + 1) % 7, (day + 2) % 7, (day + 3) % 7 ,(day + 4) % 7 , (day + 5) % 7, (day + 6) % 7)}
           <Tab label='All Games' />
           <Tab label={week[day] + ' (today)'} />
           <Tab label={week[(day + 1) % 7] + ' (tom)'} />
-          <Tab label={week[(day + 2) % 7]} />
+          <Tab label={week[(day + 2) % 7]}/>
           <Tab label={week[(day + 3) % 7]} />
           <Tab label={week[(day + 4) % 7]} />
           <Tab label={week[(day + 5) % 7]} />
@@ -73,6 +70,7 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               />
             )
           })
@@ -80,85 +78,92 @@ class CenteredTabs extends React.Component {
         {this.state.value === 1 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 0 ? <List index={index}
+              data.day === (day) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 2 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 1 ? <List index={index}
+              data.day === (day + 1) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 3 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 2 ? <List index={index}
+              data.day === (day + 2) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 4 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 3 ? <List index={index}
+              data.day === (day + 3) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 5 &&
           this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 4 ? <List index={index}
+              data.day === (day + 4) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 6 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 5 ? <List index={index}
+              data.day === (day + 5) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
         {this.state.value === 7 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
             return (
-              data.day === 6 ? <List index={index}
+              data.day === (day + 6) % 7 ? <List index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}
                 description={data.description}
                 user={this.props.user}
                 id={data.id}
+                button='Join'
               /> : null)
           }) : null}
       </Paper>

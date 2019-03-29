@@ -16,17 +16,16 @@ class MyGames extends React.Component {
   componentDidMount () {
     this.setState({ getGames: false })
     console.log('this.props.gameData ', this.props.myGames)
-    axios.get('/mygames' ,{params: {user: this.props.user.id}})
+    axios.get('/mygames', { params: { user: this.props.user.id } })
       .then(games => {
         console.log('this.props.user', this.props.user)
-        console.log('myGames', games)
-        this.props.addMyGames(this.props.user.id, games.data.data)
+        console.log('myGames from db', games)
+        this.props.addMyGames(games.data.data)
         this.setState({ getGames: true })
       })
   }
 
   render () {
-    console.log(this.props.myGames)
     return (
       this.props.myGames.map((data, index) => {
         return (
@@ -37,6 +36,7 @@ class MyGames extends React.Component {
             description={data.description}
             user={this.props.user}
             id={data.id}
+            button='Cancel'
           />
         )
       })
@@ -50,10 +50,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addMyGames: (user, game) => dispatch({
+  addMyGames: (payload) => dispatch({
     type: 'ADD_MY_GAME',
-    user,
-    game
+    payload
   })
 })
 

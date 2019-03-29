@@ -21,16 +21,17 @@ const styles = theme => ({
   }
 })
 
-function SimpleTable ({ classes, date, time, description, id, index, user }) {
+function SimpleTable ({ classes, date, time, description, id, index, user, title, button }) {
+  console.log(user)
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell align='right'>Time</TableCell>
+            <TableCell align='right'>Time (24h)</TableCell>
             <TableCell align='left'>Description</TableCell>
-            <TableCell align='left'># index</TableCell>
+            <TableCell align='left'>Creator</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,18 +42,22 @@ function SimpleTable ({ classes, date, time, description, id, index, user }) {
             </TableCell>
             <TableCell align='right'>{time}</TableCell>
             <TableCell align='left'>{description}</TableCell>
-            <TableCell align='left'>{index}</TableCell>
+            <TableCell align='left'>{user.username}</TableCell>
             <TableCell align='right'>
-              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID) => {
-                console.log('clicked')
+              {user.id ? <Button variant='contained' color='primary' onClick={(userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) => {
+                console.log('clicked', date, description, time, id, user.id)
                 axios.post('/mygames', {
                   userID: user.id,
-                  gameID: id
+                  gameID: id,
+                  dateJoin: date,
+                  timeJoin: time,
+                  titleJoin: title,
+                  descriptionJoin: description
                 })
               }} >
-                  Join
+                {button}
               </Button> : <Button variant='contained' color='primary' href='./user/account'>
-                  Join
+                {button}
               </Button>}
             </TableCell>
           </TableRow>

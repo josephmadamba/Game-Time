@@ -3,7 +3,7 @@ import SimpleExpansionPanel from './JoinGameAccordion'
 
 class SimpleList extends React.Component {
   render () {
-    const { title, time, date, description, user, index, id } = this.props
+    const { title, time, date, description, user, index, id, button } = this.props
     return (
       <div >
         <SimpleExpansionPanel
@@ -13,7 +13,8 @@ class SimpleList extends React.Component {
           description={description}
           index={index}
           user={user}
-          id={id} />
+          id={id}
+          button={button} />
       </div>
     )
   }

@@ -71,6 +71,7 @@ function getAllPlayerJoined (user_id) {
         user_id: user_id
       },
       order: [['id', 'DESC']]
+      // include: [{ model: db.Game }]
     })
       .then(res => {
         console.log(
@@ -90,11 +91,15 @@ function getAllPlayerJoined (user_id) {
   })
 }
 
-function addMyGames (userID, gameID) {
+function addMyGames (userID, gameID, dateJoin, timeJoin, titleJoin, descriptionJoin) {
   return new Promise((resolve, reject) => {
     db.GameJoinedUser.create({
       user_id: userID,
-      game_id: gameID
+      game_id: gameID,
+      date: dateJoin,
+      time: timeJoin,
+      title: titleJoin,
+      description: descriptionJoin
     })
       .then(resoluts => {
         resolve(resoluts)
@@ -111,7 +116,8 @@ function getMyGames (userID) {
     console.log('this is userID in getMygames ', userID)
     db.GameJoinedUser.findAll({
       where: { user_id: userID },
-      order: [['id', 'DESC']]
+      order: [['id', 'DESC']],
+      include: [{ model: db.Game }]
     })
       .then(games => {
         console.log('games=========================================================================', games)
