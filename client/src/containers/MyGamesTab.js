@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import List from '../components/JoinGame/JoinGameList'
 import axios from 'axios'
+import NoMyGames from '../components/NoMyGames'
 
 class MyGames extends React.Component {
   constructor (props) {
@@ -24,20 +25,21 @@ class MyGames extends React.Component {
 
   render () {
     return (
-      this.props.myGames.map((data, index) => {
-        return (
-          <List index={index}
-            title={data.title}
-            time={data.time}
-            date={data.date}
-            description={data.description}
-            user={this.props.user}
-            gameid={data.game_id}
-            addMyGames={this.props.addMyGames}
-            myGames={this.props.myGames.length}
-          />
-        )
-      })
+      this.props.myGames.length !== 0
+        ? this.props.myGames.map((data, index) => {
+          return (
+            <List index={index}
+              title={data.title}
+              time={data.time}
+              date={data.date}
+              description={data.description}
+              user={this.props.user}
+              gameid={data.game_id}
+              addMyGames={this.props.addMyGames}
+              myGames={this.props.myGames.length}
+            />
+          )
+        }) : <NoMyGames tab={this.props.tab} />
     )
   }
 }

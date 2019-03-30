@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
 import UserEntry from '../containers/UserEntry'
 
 function TabContainer(props) {
+  console.log(props)
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
       {props.children}
@@ -54,9 +55,10 @@ class CenteredTabs extends React.Component {
           <Tab label="FAQ" />
           <Tab label="About" />
         </Tabs>
+        {console.log('this.props', this.props.user)}
         {this.state.value === 0 && <TabContainer><JoinGameDayTabs/></TabContainer>}
         {this.state.value === 1 && <TabContainer><CreateGames history={this.props.history}/></TabContainer>}
-        {this.state.value === 2 && <TabContainer> {this.props.user.id ? <MyGamesTab/> : 
+        {this.state.value === 2 && <TabContainer> {this.props.user.id ? <MyGamesTab tab={this.handleChange} /> : 
           <div style={{textAlign: 'center'}}> 
             <h2>Please log in to use this feature</h2> <br/>
             <UserEntry/>  
@@ -73,8 +75,7 @@ CenteredTabs.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
-  myGames: state.myGames
+  user: state.user
 })
 
 export default connect (mapStateToProps)(withStyles(styles)(CenteredTabs));
