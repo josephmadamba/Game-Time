@@ -27,7 +27,7 @@ function ButtonAppBar (props) {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' color='inherit' className={classes.grow}>
-            News
+            GAME TIME
           </Typography>
           <Link to='/user/account'><Button color='inherit'>Login</Button></Link>
         </Toolbar>
