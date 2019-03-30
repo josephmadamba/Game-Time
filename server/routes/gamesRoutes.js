@@ -26,12 +26,7 @@ router.post('/games/create/', (req, res) => {
     })
 })
 
-router.get('/api/dashboard/:user_id', (req, res) => {
-  console.log('------------HELP-----------')
-  console.log(req.params.user_id)
-  if(req.params.user_id){
-
-  }else{
+router.get('/api/dashboard/', (req, res) => {
   dbGames.getGames()
     .then(data => {
       // Deletes games that are expired
@@ -50,8 +45,22 @@ router.get('/api/dashboard/:user_id', (req, res) => {
       console.log(er)
       res.send({ success: false, er: er })
     })
+})
+
+router.get('/api/mygames/:user_id',(req,res)=>{
+  let userId = req.params.user_id
+  if(userId){
+    dbGames.getUserCreateed(userId)
+    .then(data=>{
+      console.log('This should be the data from /api/mygames', data)
+      res.send({games: data})
+    })
+    .catch(er=>{
+      consolle.log('This is the er', er)
+    })
   }
 })
+
 
 router.post('/mygames', (req, res) => {
   dbGames.addMyGames(
@@ -82,16 +91,31 @@ router.get('/mygames', (req, res) => {
 })
 
 router.delete(`/api/delete/games`, (req, res) => {
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', req)
+
   let game_id = req.body.game_id
   let user_id = req.body.user_id
   dbGames.deleteGames(user_id, game_id)
     .then(data => {
-      console.log('----------')
-      console.log(data)
+
       res.send(data)
     })
     .catch(er => {
-      console.log(er)
+      res.send({success:false})
     })
+})
+
+router.delete('/api/delete/created', (req, res)=>{
+  let game_id = req.body.game_id
+  let user_id = req.body.user_id
+  dbGames.deleteCreatedGame(user_id, game_id)
+  .then(data=>{
+    console.log('-------------')
+    console.log(data
+    )
+    console.log('-------------')
+    res.send({success:true, data: data})
+  })
+  .catch(er=>{
+    res.send({success:er, error: er})
+  })
 })

@@ -66,7 +66,16 @@ class CenteredTabs extends React.Component {
             <h2>Please log in to use this feature</h2> <br/>
             <UserEntry/>  
           </div> } </TabContainer> }
-        {this.state.value === 3 && <TabContainer> <MyCreateGame/></TabContainer>}
+        {this.state.value === 3 && <TabContainer> 
+          {this.props.user.id? <MyCreateGame tab={this.handleChange}/>: 
+          <div style={{textAlign: 'center'}}> 
+            <h2>Please log in to use this feature</h2> <br/>
+            <UserEntry/>  
+          </div>
+          }
+          
+          
+          </TabContainer>}
         {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
         {this.state.value === 5 && <TabContainer><About/></TabContainer>}
     </Paper>

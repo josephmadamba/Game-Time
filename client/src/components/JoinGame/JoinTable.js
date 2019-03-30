@@ -57,7 +57,41 @@ function SimpleTable ({ myGames, classes, date, time, description, gameid, index
                   }} >
                     {button}
                   </Button>
-                  : <Button variant='contained' color='primary' onClick={() => {
+                  : 
+                    button === 'remove'? 
+                    <Button variant='contained' color='primary' onClick={()=>{
+
+                        axios.delete('/api/delete/created', {
+                          data: {
+                        user_id: user.id,
+                        game_id: gameid
+                      }
+                        })
+                        .then(res=>{
+
+                        
+                          axios.get(`api/mygames/${user.id}`)
+                          .then(games => {
+                            addMyGames(games.data.games)
+                          })
+                          .catch(error => {
+                        console.log(error)
+                      })
+
+
+                        
+                        })
+                        .catch(er=>{
+                          console.log(er)
+                        })
+
+                      }}
+                    
+                    
+                    >Cancel</Button>
+                    :
+              
+                    <Button variant='contained' color='primary' onClick={() => {
                     axios.delete('/api/delete/games', {
                       data: {
                         user_id: user.id,
@@ -76,6 +110,8 @@ function SimpleTable ({ myGames, classes, date, time, description, gameid, index
                   }} >
                       Cancel
                   </Button>
+
+
 
                 : <Button variant='contained' color='primary' href='./user/account'>
                   {button}
