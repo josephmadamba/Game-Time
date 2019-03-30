@@ -9,8 +9,10 @@ import JoinGameDayTabs from '../containers/JoinGameDayTabs'
 import CreateGames from './CreateGames'
 import MyGamesTab from '../containers/MyGamesTab'
 import About from './About';
+import MyCreateGame from '../containers/MyCreateGame';
 import { connect } from 'react-redux'
 import UserEntry from '../containers/UserEntry'
+
 
 function TabContainer(props) {
   console.log(props)
@@ -52,6 +54,7 @@ class CenteredTabs extends React.Component {
           <Tab label="Join Games" />
           <Tab label="Create Games" />
           <Tab label="My Games" />
+          <Tab label='My Create Games'/>
           <Tab label="FAQ" />
           <Tab label="About" />
         </Tabs>
@@ -63,8 +66,18 @@ class CenteredTabs extends React.Component {
             <h2>Please log in to use this feature</h2> <br/>
             <UserEntry/>  
           </div> } </TabContainer> }
-        {this.state.value === 3 && <TabContainer>FAQ</TabContainer>}
-        {this.state.value === 4 && <TabContainer><About/></TabContainer>}
+        {this.state.value === 3 && <TabContainer> 
+          {this.props.user.id? <MyCreateGame tab={this.handleChange}/>: 
+          <div style={{textAlign: 'center'}}> 
+            <h2>Please log in to use this feature</h2> <br/>
+            <UserEntry/>  
+          </div>
+          }
+          
+          
+          </TabContainer>}
+        {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
+        {this.state.value === 5 && <TabContainer><About/></TabContainer>}
     </Paper>
     );
   }
