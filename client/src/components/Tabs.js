@@ -25,6 +25,8 @@ function TabContainer(props) {
 const styles = {
   root: {
     flexGrow: 1,
+    // width: 'fit-content',
+    margin: 'auto'
   },
 };
 
@@ -47,6 +49,7 @@ class CenteredTabs extends React.Component {
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"
+          variant="fullWidth"
           centered
         >
           <Tab label="Join Games" />

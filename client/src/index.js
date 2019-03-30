@@ -33,7 +33,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(routing)
 ReactDOM.render(<Provider store={store}>
   <Router history={history}>
 
-    <Switch>
+    <Switch >
       <Route path='/' exact component={Landing} />
       <Route path='/dashboard' exact component={Dashboard} />
       <Route path='/user/account' exact component={User} />
