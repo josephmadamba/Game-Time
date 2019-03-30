@@ -29,7 +29,6 @@ class CenteredTabs extends React.Component {
     this.setState({ getGames: false })
     axios.get('/api/dashboard')
       .then(games => {
-
         this.props.updateGames(games.data.data)
         this.setState({ getGames: true })
       })
@@ -47,6 +46,7 @@ class CenteredTabs extends React.Component {
           indicatorColor='primary'
           textColor='primary'
           variant='scrollable'
+          scrollButtons='off'
         >
           <Tab label='All Games' />
           <Tab label={week[day] + ' (today)'} />
