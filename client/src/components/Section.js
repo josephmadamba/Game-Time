@@ -3,7 +3,7 @@ import React from 'react'
 const Sections = ({title, content}) => {
   return (
     <div className='sections-about'>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
       {content}
     </div>
   )
