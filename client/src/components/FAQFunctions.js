@@ -25,7 +25,7 @@ export const question3 = () => (
 );
 
 export const question4 = () => (
-  <p>An account A pick up game available for people to join. That’s it.</p>
+  <p>An account! A pick up game available for people to join. That’s it.</p>
 );
 
 export const question5 = () => (
