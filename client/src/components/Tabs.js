@@ -12,11 +12,8 @@ import About from './About';
 import MyCreateGame from '../containers/MyCreateGame';
 import { connect } from 'react-redux'
 import UserEntry from '../containers/UserEntry'
-<<<<<<< HEAD
 import Measure from 'react-measure'
-=======
 import FAQ from './FAQ';
->>>>>>> a70b8e6fcc7c78b6b9f4fc2c485ba501ca5e6189
 
 
 function TabContainer(props) {
