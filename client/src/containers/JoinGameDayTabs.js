@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -28,7 +27,6 @@ class CenteredTabs extends React.Component {
 
   componentDidMount () {
     this.setState({ getGames: false })
-    console.log('this.props.gameData ', this.props.gameData)
     axios.get('/api/dashboard')
       .then(games => {
         this.props.updateGames(games.data.data)
@@ -48,8 +46,8 @@ class CenteredTabs extends React.Component {
           indicatorColor='primary'
           textColor='primary'
           variant='scrollable'
+          scrollButtons='off'
         >
-          {console.log(day, (day + 1) % 7, (day + 2) % 7, (day + 3) % 7, (day + 4) % 7, (day + 5) % 7, (day + 6) % 7)}
           <Tab label='All Games' />
           <Tab label={week[day] + ' (today)'} />
           <Tab label={week[(day + 1) % 7] + ' (tom)'} />
@@ -61,9 +59,9 @@ class CenteredTabs extends React.Component {
         </Tabs>
         {this.state.value === 0 &&
         this.state.getGames ? this.props.gameData.map((data, index) => {
-            console.log(data)
             return (
-              <List index={index}
+              <List key={index}
+                index={index}
                 title={data.title}
                 time={data.time}
                 date={data.date}

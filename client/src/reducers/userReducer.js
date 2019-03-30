@@ -3,7 +3,7 @@ const userReducer = (state = {}, action) => {
 
   switch (action.type) {
     case 'UPDATE_USER':
-      console.log(action.value)
+
       newState = action.value
       return newState
 

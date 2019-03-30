@@ -20,7 +20,9 @@ const gamesdb = {
   getGames: getGames,
   getAllPlayerJoined: getAllPlayerJoined,
   addMyGames,
-  deleteGames
+  deleteGames,
+  getUserCreateed,
+  deleteCreatedGame
 }
 module.exports = gamesdb
 
@@ -133,5 +135,47 @@ function deleteGames (user_id, game_id) {
       .catch(er => {
         reject({ success: false, error: er })
       })
+  })
+}
+
+
+function getUserCreateed(user_id){
+  console.log('-----------')
+  console.log(user_id)
+  return new Promise((resolve, reject)=>{
+    db.Game.findAll({
+      where: {user_id : user_id}
+    })
+    .then(res=>{
+      resolve(res)
+    })
+    .catch(er => {
+      reject(er)
+    })
+  })
+}
+
+function deleteCreatedGame(user_id, game_id){
+  console.log(user_id, game_id)
+  return new Promise((resolve, reject)=>{
+    db.Game.findAll({
+      where:{
+          user_id: user_id,
+          id: game_id
+      }
+    })
+    .then(res=>{
+      res[0].destroy().then(data => {
+        console.log(data)
+        resolve({ success: true })
+      })
+        .catch(er => {
+          reject({ success: false, error: er })
+        })
+    })
+    .catch(er=>{
+      console.log('data', er)
+      reject(er)
+    })
   })
 }

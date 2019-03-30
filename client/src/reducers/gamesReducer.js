@@ -7,7 +7,6 @@ const gameReducer = (state = gameState, action) => {
   switch (action.type) {
     case 'UPDATE_GAMES':
       newState = action.payload
-      console.log(newState)
       return newState
     default:
       return state

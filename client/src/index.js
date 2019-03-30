@@ -17,12 +17,11 @@ import rootReducer from './reducers/index'
 import * as serviceWorker from './serviceWorker'
 
 // Components
-import Homepage from './components/Homepage'
 import Dashboard from './components/Dashboard'
 import User from './containers/UserEntry'
 import CreateGames from './components/CreateGames'
-import JoinGameDayTabs from './containers/JoinGameDayTabs'
 import map from './containers/MapContainer'
+import Landing from './components/Landing'
 // Initialize redux store and thunk middleware
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -34,12 +33,12 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(routing)
 ReactDOM.render(<Provider store={store}>
   <Router history={history}>
 
-    <Switch>
-      <Route path='/' exact component={User} />
+    <Switch >
+      <Route path='/' exact component={Landing} />
       <Route path='/dashboard' exact component={Dashboard} />
       <Route path='/user/account' exact component={User} />
       <Route path='/games/create' exact component={CreateGames} />
-      <Route path='testing/map' exact component={map}/>
+      <Route path='testing/map' exact component={map} />
     </Switch>
 
   </Router>
