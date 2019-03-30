@@ -1,4 +1,5 @@
 {
+
   "main.css": "/static/css/main.e0bd8a87.chunk.css",
   "main.js": "/static/js/main.50dfeb3c.chunk.js",
   "main.js.map": "/static/js/main.50dfeb3c.chunk.js.map",
@@ -14,4 +15,5 @@
   "static/css/main.e0bd8a87.chunk.css.map": "/static/css/main.e0bd8a87.chunk.css.map",
   "static/media/UserAcc.css": "/static/media/basketball.cf8aeb26.jpg",
   "static/media/shot.mp4": "/static/media/shot.104b828b.mp4"
+
 }
