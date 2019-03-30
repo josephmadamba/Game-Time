@@ -1,5 +1,11 @@
 import React from "react";
 
+import history from '../history'
+
+function onclick(){
+  history.push('/user/account')
+}
+
 export const question1 = () => (
   <p>
     It’s an app where basketball players can find and create pick up games to
@@ -9,7 +15,7 @@ export const question1 = () => (
 
 export const question2 = () => (
   <p>
-    Sign Up for an account Find games to play in Create games for you and others
+    <a href='/user/account'>Sign Up</a> for an account Find games to play in Create games for you and others
     to play in Keep track of all games you have joined
   </p>
 );
