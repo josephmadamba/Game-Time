@@ -5,11 +5,13 @@ import { combineReducers } from 'redux'
 import user from './userReducer'
 import games from './gamesReducer'
 import myGames from './myGamesReducer'
+import myCreatedGame from './myCreatedGameReducer'
 
 const rootReducer = combineReducers({
   user,
   games,
-  myGames
+  myGames,
+  myCreatedGame
 })
 
 export default rootReducer

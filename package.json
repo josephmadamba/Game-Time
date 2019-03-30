@@ -11,8 +11,8 @@
     "client": "cd client && node start",
     "server": "nodemon server/server.js",
     "dev": "concurrently --kill-others-on-fail \"node server\" \"node client\"",
-    "start": "node server/server.js",
-    "heroku-postbuild": "sequelize db:migrate"
+    "start": "node server/server.js"
+    
   },
   "repository": {
     "type": "git",
