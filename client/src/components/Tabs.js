@@ -75,7 +75,8 @@ CenteredTabs.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  myGames: state.myGames
 })
 
 export default connect (mapStateToProps)(withStyles(styles)(CenteredTabs));
