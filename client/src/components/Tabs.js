@@ -10,6 +10,9 @@ import CreateGames from './CreateGames'
 import MyGamesTab from '../containers/MyGamesTab'
 import About from './About';
 import MyCreateGame from '../containers/MyCreateGame';
+import { connect } from 'react-redux'
+import UserEntry from '../containers/UserEntry'
+
 
 function TabContainer(props) {
   console.log(props)
@@ -55,9 +58,15 @@ class CenteredTabs extends React.Component {
           <Tab label="FAQ" />
           <Tab label="About" />
         </Tabs>
+        {console.log('this.props', this.props.user)}
         {this.state.value === 0 && <TabContainer><JoinGameDayTabs/></TabContainer>}
         {this.state.value === 1 && <TabContainer><CreateGames history={this.props.history}/></TabContainer>}
-        {this.state.value === 2 && <TabContainer><MyGamesTab/></TabContainer>}
+
+{this.state.value === 2 && <TabContainer> {this.props.user.id ? <MyGamesTab/> : 
+          <div style={{textAlign: 'center'}}> 
+            <h2>Please log in to use this feature</h2> <br/>
+            <UserEntry/>  
+          </div> } </TabContainer> }
         {this.state.value === 3 && <TabContainer> <MyCreateGame/></TabContainer>}
         {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
         {this.state.value === 5 && <TabContainer><About/></TabContainer>}
@@ -70,4 +79,8 @@ CenteredTabs.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredTabs);
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect (mapStateToProps)(withStyles(styles)(CenteredTabs));
