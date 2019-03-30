@@ -12,6 +12,7 @@ import About from './About';
 import MyCreateGame from '../containers/MyCreateGame';
 import { connect } from 'react-redux'
 import UserEntry from '../containers/UserEntry'
+import FAQ from './FAQ';
 
 
 function TabContainer(props) {
@@ -76,7 +77,7 @@ class CenteredTabs extends React.Component {
           
           
           </TabContainer>}
-        {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
+        {this.state.value === 4 && <TabContainer><FAQ/></TabContainer>}
         {this.state.value === 5 && <TabContainer><About/></TabContainer>}
     </Paper>
     );
