@@ -26,7 +26,12 @@ router.post('/games/create/', (req, res) => {
     })
 })
 
-router.get('/api/dashboard', (req, res) => {
+router.get('/api/dashboard/:user_id', (req, res) => {
+  console.log('------------HELP-----------')
+  console.log(req.params.user_id)
+  if(req.params.user_id){
+
+  }else{
   dbGames.getGames()
     .then(data => {
       // Deletes games that are expired
@@ -45,6 +50,7 @@ router.get('/api/dashboard', (req, res) => {
       console.log(er)
       res.send({ success: false, er: er })
     })
+  }
 })
 
 router.post('/mygames', (req, res) => {

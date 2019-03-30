@@ -9,6 +9,7 @@ import JoinGameDayTabs from '../containers/JoinGameDayTabs'
 import CreateGames from './CreateGames'
 import MyGamesTab from '../containers/MyGamesTab'
 import About from './About';
+import MyCreateGame from '../containers/MyCreateGame';
 
 function TabContainer(props) {
   console.log(props)
@@ -50,14 +51,16 @@ class CenteredTabs extends React.Component {
           <Tab label="Join Games" />
           <Tab label="Create Games" />
           <Tab label="My Games" />
+          <Tab label='My Create Games'/>
           <Tab label="FAQ" />
           <Tab label="About" />
         </Tabs>
         {this.state.value === 0 && <TabContainer><JoinGameDayTabs/></TabContainer>}
         {this.state.value === 1 && <TabContainer><CreateGames history={this.props.history}/></TabContainer>}
         {this.state.value === 2 && <TabContainer><MyGamesTab/></TabContainer>}
-        {this.state.value === 3 && <TabContainer>FAQ</TabContainer>}
-        {this.state.value === 4 && <TabContainer><About/></TabContainer>}
+        {this.state.value === 3 && <TabContainer> <MyCreateGame/></TabContainer>}
+        {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
+        {this.state.value === 5 && <TabContainer><About/></TabContainer>}
     </Paper>
     );
   }
