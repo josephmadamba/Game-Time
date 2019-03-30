@@ -15,11 +15,8 @@ class MyGames extends React.Component {
 
   componentDidMount () {
     this.setState({ getGames: false })
-    console.log('this.props.gameData ', this.props.myGames)
     axios.get('/mygames', { params: { user: this.props.user.id } })
       .then(games => {
-        console.log('this.props.user', this.props.user)
-        console.log('myGames from db', games)
         this.props.addMyGames(games.data.data)
         this.setState({ getGames: true })
       })
