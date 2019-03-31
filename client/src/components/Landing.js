@@ -101,7 +101,7 @@ class Landing extends Component {
 
           
             <Button href='/user/account'>
-              <img className={`${classes.create} wow bounceInLeft`} data-wow-duration='2s' data-wow-delay='6s' src={CREATE} alt='' /> 
+              <img className={`${classes.create} wow bounceInDown`} data-wow-duration='2s' data-wow-delay='6s' src={CREATE} alt='' /> 
             </Button>
        
            <br/>
@@ -112,7 +112,7 @@ class Landing extends Component {
 
           {/* &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  */}
           <Button href='/user/account'>
-            <img className={`${classes.join} wow bounceInRight`} data-wow-duration='2s' data-wow-delay='6.2s' src={JOIN} alt='' />
+            <img className={`${classes.join} wow bounceInLeft`} data-wow-duration='2s' data-wow-delay='6.2s' src={JOIN} alt='' />
           </Button>
         </Typography>
        
@@ -123,7 +123,7 @@ class Landing extends Component {
 
           &nbsp; 
 
-          <img className={`${classes.gamereg} wow bounceInLeft`} data-wow-duration='2s' data-wow-delay='6.4s' src={GAMEREG} alt='' /> &nbsp; &nbsp; 
+          <img className={`${classes.gamereg} wow bounceInUp`} data-wow-duration='2s' data-wow-delay='6.4s' src={GAMEREG} alt='' /> &nbsp; &nbsp; 
 
           &nbsp; 
 
