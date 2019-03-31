@@ -90,7 +90,7 @@ class CenteredTabs extends React.Component {
             </div>
             }
             </TabContainer>}
-          {this.state.value === 4 && <TabContainer>FAQ</TabContainer>}
+          {this.state.value === 4 && <TabContainer><FAQ/></TabContainer>}
           {this.state.value === 5 && <TabContainer><About/></TabContainer>}
       </Paper>
       </div>
