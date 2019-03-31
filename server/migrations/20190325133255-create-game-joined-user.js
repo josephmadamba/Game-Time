@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('GameJoinedUsers', {
@@ -36,6 +36,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
+        type: Sequelize.STRING
+      },
+      city: {
+        type: Sequelize.STRING
+      },
+      state: {
+        type: Sequelize.STRING
+      },
+      zip: {
+        type: Sequelize.INTEGER
+      },
+      address: {
         type: Sequelize.STRING
       },
       createdAt: {

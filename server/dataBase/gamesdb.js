@@ -94,7 +94,11 @@ function addMyGames (
   dateJoin,
   timeJoin,
   titleJoin,
-  descriptionJoin
+  descriptionJoin,
+  cityJoin,
+  stateJoin,
+  zipJoin,
+  addressJoin
 ) {
   return new Promise((resolve, reject) => {
     db.GameJoinedUser.create({
@@ -103,7 +107,11 @@ function addMyGames (
       date: dateJoin,
       time: timeJoin,
       title: titleJoin,
-      description: descriptionJoin
+      description: descriptionJoin,
+      city: cityJoin,
+      state: stateJoin,
+      zip: zipJoin,
+      address: addressJoin
     })
       .then(resoluts => {
         resolve(resoluts)
@@ -138,44 +146,43 @@ function deleteGames (user_id, game_id) {
   })
 }
 
-
-function getUserCreateed(user_id){
+function getUserCreateed (user_id) {
   console.log('-----------')
   console.log(user_id)
-  return new Promise((resolve, reject)=>{
+  return new Promise((resolve, reject) => {
     db.Game.findAll({
-      where: {user_id : user_id}
+      where: { user_id: user_id }
     })
-    .then(res=>{
-      resolve(res)
-    })
-    .catch(er => {
-      reject(er)
-    })
+      .then(res => {
+        resolve(res)
+      })
+      .catch(er => {
+        reject(er)
+      })
   })
 }
 
-function deleteCreatedGame(user_id, game_id){
+function deleteCreatedGame (user_id, game_id) {
   console.log(user_id, game_id)
-  return new Promise((resolve, reject)=>{
+  return new Promise((resolve, reject) => {
     db.Game.findAll({
-      where:{
-          user_id: user_id,
-          id: game_id
+      where: {
+        user_id: user_id,
+        id: game_id
       }
     })
-    .then(res=>{
-      res[0].destroy().then(data => {
-        console.log(data)
-        resolve({ success: true })
-      })
-        .catch(er => {
-          reject({ success: false, error: er })
+      .then(res => {
+        res[0].destroy().then(data => {
+          console.log(data)
+          resolve({ success: true })
         })
-    })
-    .catch(er=>{
-      console.log('data', er)
-      reject(er)
-    })
+          .catch(er => {
+            reject({ success: false, error: er })
+          })
+      })
+      .catch(er => {
+        console.log('data', er)
+        reject(er)
+      })
   })
 }

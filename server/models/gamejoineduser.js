@@ -4,6 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.STRING,
     time: DataTypes.STRING,
     title: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.INTEGER,
+    address: DataTypes.STRING,
     description: DataTypes.STRING
   }, {})
   GameJoinedUser.associate = function (models) {
