@@ -13,7 +13,7 @@ import axios from 'axios'
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 1,
     overflowX: 'auto'
   },
   table: {
@@ -21,28 +21,28 @@ const styles = theme => ({
   }
 })
 
-function SimpleTable ({ myGames, classes, date, time, description, gameid, index, user, title, button, addMyGames }) {
+function SimpleTable ({ myGames, classes, date, time, description, gameid, index, user, title, button, addMyGames, city, state, zip, address }) {
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell align='right'>Time (24h)</TableCell>
+            <TableCell align='left'>Address</TableCell>
+            <TableCell align='left'>City</TableCell>
+            <TableCell align='left'>Date</TableCell>
+            <TableCell align='left'>Time (24h)</TableCell>
             <TableCell align='left'>Description</TableCell>
-            <TableCell align='left'>Creator</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
 
           <TableRow>
-            <TableCell component='th' scope='row'>
-              {date}
-            </TableCell>
-            <TableCell align='right'>{time}</TableCell>
+            <TableCell align='left'>{address}</TableCell>
+            <TableCell align='left'>{city}</TableCell>
+            <TableCell align='left'>{date}</TableCell>
+            <TableCell align='left'>{time}</TableCell>
             <TableCell align='left'>{description}</TableCell>
-            <TableCell align='left'>{user.username}</TableCell>
-            <TableCell align='right'>
+            <TableCell align='left'>
               {user.id
                 ? button === 'Join'
                   ? <Button variant='contained' color='primary' onClick={() => {
@@ -52,66 +52,57 @@ function SimpleTable ({ myGames, classes, date, time, description, gameid, index
                       dateJoin: date,
                       timeJoin: time,
                       titleJoin: title,
-                      descriptionJoin: description
+                      descriptionJoin: description,
+                      cityJoin: city,
+                      stateJoin: state,
+                      zipJoin: zip,
+                      addressJoin: address
                     })
                   }} >
                     {button}
                   </Button>
-                  : 
-                    button === 'remove'? 
-                    <Button variant='contained' color='primary' onClick={()=>{
-
-                        axios.delete('/api/delete/created', {
-                          data: {
-                        user_id: user.id,
-                        game_id: gameid
-                      }
-                        })
-                        .then(res=>{
-
-                        
-                          axios.get(`api/mygames/${user.id}`)
-                          .then(games => {
-                            addMyGames(games.data.games)
-                          })
-                          .catch(error => {
-                        console.log(error)
+                  : button === 'remove'
+                    ? <Button variant='contained' color='primary' onClick={() => {
+                      axios.delete('/api/delete/created', {
+                        data: {
+                          user_id: user.id,
+                          game_id: gameid
+                        }
                       })
-
-
-                        
+                        .then(res => {
+                          axios.get(`api/mygames/${user.id}`)
+                            .then(games => {
+                              addMyGames(games.data.games)
+                            })
+                            .catch(error => {
+                              console.log(error)
+                            })
                         })
-                        .catch(er=>{
+                        .catch(er => {
                           console.log(er)
                         })
+                    }}
 
-                      }}
-                    
-                    
                     >Cancel</Button>
-                    :
-              
-                    <Button variant='contained' color='primary' onClick={() => {
-                    axios.delete('/api/delete/games', {
-                      data: {
-                        user_id: user.id,
-                        game_id: gameid
-                      }
-                    })
-                      .then(() => {
-                        axios.get('/mygames', { params: { user: user.id } })
-                          .then(games => {
-                            addMyGames(games.data.data)
-                          })
+                    : <Button variant='contained' color='primary' onClick={() => {
+                      axios.delete('/api/delete/games', {
+                        data: {
+                          user_id: user.id,
+                          game_id: gameid
+                        }
                       })
-                      .catch(error => {
-                        console.log(error)
-                      })
-                  }} >
+                        .then(() => {
+                          axios.get('/mygames', { params: { user: user.id } })
+                            .then(games => {
+                              addMyGames(games.data.data)
+                            })
+                        })
+                        .catch(error => {
+                          console.log(error)
+                        })
+                    }} >
                       Cancel
-                  </Button>
-
-
+                    </Button>
 
                 : <Button variant='contained' color='primary' href='./user/account'>
                   {button}

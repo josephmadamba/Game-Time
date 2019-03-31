@@ -47,20 +47,19 @@ router.get('/api/dashboard/', (req, res) => {
     })
 })
 
-router.get('/api/mygames/:user_id',(req,res)=>{
+router.get('/api/mygames/:user_id', (req, res) => {
   let userId = req.params.user_id
-  if(userId){
+  if (userId) {
     dbGames.getUserCreateed(userId)
-    .then(data=>{
-      console.log('This should be the data from /api/mygames', data)
-      res.send({games: data})
-    })
-    .catch(er=>{
-      consolle.log('This is the er', er)
-    })
+      .then(data => {
+        console.log('This should be the data from /api/mygames', data)
+        res.send({ games: data })
+      })
+      .catch(er => {
+        console.log('This is the er', er)
+      })
   }
 })
-
 
 router.post('/mygames', (req, res) => {
   dbGames.addMyGames(
@@ -69,7 +68,11 @@ router.post('/mygames', (req, res) => {
     req.body.dateJoin,
     req.body.timeJoin,
     req.body.titleJoin,
-    req.body.descriptionJoin)
+    req.body.descriptionJoin,
+    req.body.cityJoin,
+    req.body.stateJoin,
+    req.body.zipJoin,
+    req.body.addressJoin)
     .then(data => {
       res.send({ success: true, data: data })
     })
@@ -91,31 +94,29 @@ router.get('/mygames', (req, res) => {
 })
 
 router.delete(`/api/delete/games`, (req, res) => {
-
   let game_id = req.body.game_id
   let user_id = req.body.user_id
   dbGames.deleteGames(user_id, game_id)
     .then(data => {
-
       res.send(data)
     })
     .catch(er => {
-      res.send({success:false})
+      res.send({ success: false })
     })
 })
 
-router.delete('/api/delete/created', (req, res)=>{
+router.delete('/api/delete/created', (req, res) => {
   let game_id = req.body.game_id
   let user_id = req.body.user_id
   dbGames.deleteCreatedGame(user_id, game_id)
-  .then(data=>{
-    console.log('-------------')
-    console.log(data
-    )
-    console.log('-------------')
-    res.send({success:true, data: data})
-  })
-  .catch(er=>{
-    res.send({success:er, error: er})
-  })
+    .then(data => {
+      console.log('-------------')
+      console.log(data
+      )
+      console.log('-------------')
+      res.send({ success: true, data: data })
+    })
+    .catch(er => {
+      res.send({ success: er, error: er })
+    })
 })

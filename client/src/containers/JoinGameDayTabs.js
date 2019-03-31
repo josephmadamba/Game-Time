@@ -68,6 +68,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               />
             )
@@ -83,6 +87,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -96,6 +104,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -109,6 +121,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -122,6 +138,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -135,6 +155,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -148,6 +172,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}
@@ -161,6 +189,10 @@ class CenteredTabs extends React.Component {
                 description={data.description}
                 user={this.props.user}
                 gameid={data.id}
+                city={data.city}
+                state={data.state}
+                zip={data.zip}
+                address={data.address}
                 button='Join'
               /> : null)
           }) : null}

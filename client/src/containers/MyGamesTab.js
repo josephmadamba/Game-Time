@@ -37,6 +37,10 @@ class MyGames extends React.Component {
               gameid={data.game_id}
               addMyGames={this.props.addMyGames}
               myGames={this.props.myGames.length}
+              city={data.city}
+              state={data.state}
+              zip={data.zip}
+              address={data.address}
             />
           )
         }) : <NoMyGames tab={this.props.tab} />
