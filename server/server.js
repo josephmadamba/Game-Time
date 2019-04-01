@@ -12,7 +12,7 @@ app.use(require('./routes/userRoute'))
  app.use(require('./routes/gamesRoutes'))
 
 app.use(express.static(path.join(__dirname, '..', 'client/build')));
- console.log(__dirname)
+
 
 
  

@@ -53,7 +53,6 @@ function checkLogin(username, password){
     return new Promise((resolve, reject)=>{
         db.User.findOne({where:{username: username}})
         .then(user=>{
-            console.log(user.dataValues)
             bcrypt.compare(password, user.dataValues.password, (err, correct)=>{
                 if(correct){
                     resolve({correct: true, user: user.dataValues})

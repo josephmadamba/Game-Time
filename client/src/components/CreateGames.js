@@ -140,11 +140,8 @@ class CreateGames extends React.Component {
     }
     getDate() {
         let str = JSON.stringify(this.state.startDate)
-        console.log('This is str from getData', str)
         let string = str.replace('"', 'T')
-        console.log(string)
         let data = string.split('T')
-        console.log(data)
 
         return data
     }
@@ -165,20 +162,18 @@ class CreateGames extends React.Component {
 
           })
             .then(res => {
-                console.log(res.data)
                 if(res.data.success){
                   
 
 
                     this.setState({submit: false});
 
-                  console.log(this.props)
                   this.props.tab('click', 0)
                   // this.props.history.push('/dashboard')
                 }
             })
             .catch(er=>{
-                console.log(er)
+              
             })
      
     }

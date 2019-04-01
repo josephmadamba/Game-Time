@@ -26,22 +26,10 @@ class MyCreateGame extends Component {
       this.setState({show:true})
     })
     .catch(er=>{
-        console.log('This is the er', er)
+
     })
   }
-  componentDidUpdate(){
-    // console.log('HI!--------------------', this.props.user.id)
-    //   if(this.props.user.id){
-    //     console.log('hi inside the if')
-    //     axios.get(`api/mygames/${this.props.user.id}`)
-    //     .then(data=>{
-    //         this.props.addCreateGames(data.data.games)
-    //     })
-    //     .catch(er=>{
-    //         console.log('This is the er', er)
-    //     })
-    //   }
-  }
+
 
 
 

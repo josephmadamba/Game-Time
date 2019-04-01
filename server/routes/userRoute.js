@@ -19,13 +19,10 @@ const validator = require('email-validator')
 
 router.post('/pickup/create/user', (req, res) => {
   let user = req.body.user
-  console.log(user)
   if (user.username) {
     if (validator.validate(user.email)) {
       bcrypt.hash(user.password, saltRounds)
         .then(password => {
-          console.log('This is the password', password)
-
           userdb.createUser(user.username, password, user.email)
             .then(data => {
               if (data.created) {

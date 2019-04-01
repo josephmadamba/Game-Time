@@ -60,11 +60,9 @@ function getGames() {
       order: [["id", "DESC"]]
     })
       .then(games => {
-        console.log("games", games);
         resolve(games);
       })
       .catch(er => {
-        console.log("This is er", er);
         reject(er);
       });
   });
@@ -79,14 +77,11 @@ function getAllPlayerJoined(user_id) {
       order: [["id", "DESC"]]
     })
       .then(res => {
-        console.log(
-          "This should be the results from getAllPlayersJoined",
-          res.dataValues
-        );
+
         resolve(res);
       })
       .catch(er => {
-        console.log("This is the error", er);
+
         reject(er);
       });
   });
@@ -121,7 +116,6 @@ function addMyGames(
         resolve(resoluts);
       })
       .catch(er => {
-        console.log("This is the error", er);
         reject(er);
       });
   });
@@ -133,11 +127,10 @@ function deleteGames(user_id, game_id) {
       where: { user_id: user_id, game_id: game_id }
     })
       .then(res => {
-        console.log(res[0]);
         res[0]
           .destroy()
           .then(data => {
-            console.log(data);
+
             resolve({ success: true });
           })
           .catch(er => {
@@ -151,8 +144,6 @@ function deleteGames(user_id, game_id) {
 }
 
 function getUserCreateed(user_id) {
-  console.log("-----------");
-  console.log(user_id);
   return new Promise((resolve, reject) => {
     db.Game.findAll({
       where: { user_id: user_id }
@@ -167,7 +158,6 @@ function getUserCreateed(user_id) {
 }
 
 function deleteCreatedGame(user_id, game_id) {
-  console.log(user_id, game_id);
   return new Promise((resolve, reject) => {
     db.Game.findAll({
       where: {
@@ -179,7 +169,6 @@ function deleteCreatedGame(user_id, game_id) {
         res[0]
           .destroy()
           .then(data => {
-            console.log(data);
             resolve({ success: true });
           })
           .catch(er => {
@@ -187,7 +176,6 @@ function deleteCreatedGame(user_id, game_id) {
           });
       })
       .catch(er => {
-        console.log("data", er);
         reject(er);
       });
   });

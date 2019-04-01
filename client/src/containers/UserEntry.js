@@ -125,7 +125,7 @@ class UserEntry extends Component {
         }
       })
       .catch(er=>{
-        console.log(er)
+
       })
   }
 
@@ -137,7 +137,7 @@ class UserEntry extends Component {
       })
       .then(res => {
         if (res.data.success) {
-             console.log(res.data)
+
           this.setState({ userLogEr: false, passLogEr: false });
           this.props.updateUser(res.data.user)
 
@@ -147,7 +147,7 @@ class UserEntry extends Component {
         }
       })
       .catch(er=>{
-        console.log(er)
+
       })
   }
 
