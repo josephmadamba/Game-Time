@@ -131,8 +131,6 @@ class CreateGames extends React.Component {
     
     
     componentDidUpdate() {
-      console.log('---------')
-      console.log(this.getDate())
 
     }
     
