@@ -124,19 +124,21 @@ class CreateGames extends React.Component {
         evt.preventDefault();
         let dayNumber = this.getDay()
         let date = this.getDate()
+
         
         this.handleCreateGame(date[1], dayNumber, date[2].slice(0,5), this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
     
     
     componentDidUpdate() {
-
+      console.log('---------')
+      console.log(this.getDate())
 
     }
     
     getDay() {
         let day = this.state.startDate
-        return ((day.getUTCDay()+6)%7)
+        return (((day.getUTCDay()+7)%7))
     }
     getDate() {
         let str = JSON.stringify(this.state.startDate)
@@ -157,7 +159,11 @@ class CreateGames extends React.Component {
                 time: time,
                 title: title,
                 description: description,
-                user:user
+                user:user,
+                state: this.state.gameSt,
+                address: this.state.gameAddress,
+                city: this.state.gameCity,
+                zip : this.state. gameZip
 
           })
             .then(res => {
