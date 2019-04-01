@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Video from '../img/shot.gif'
 import WOW from 'wowjs'
-import GOT from '../img/Got.png'
+// import GOT from '../img/got.png'
 import GAME from '../img/game.png'
 import CREATE from '../img/createbutton.png'
-import OR from '../img/Or.png'
+import OR from '../img/or.png'
 import JOIN from '../img/joinbutton.png'
 import A from '../img/a.png'
 import GAMEREG from '../img/gamereg.png'
@@ -83,7 +83,7 @@ class Landing extends Component {
 
         <Typography align='center'>
 
-          <img className={`${classes.got} wow bounceInLeft`} data-wow-duration='2.1s' data-wow-delay='2s' src={GOT} alt='' />
+          {/* <img className={`${classes.got} wow bounceInLeft`} data-wow-duration='2.1s' data-wow-delay='2s' src={GOT} alt='' /> */}
         </Typography>
 
         <Typography align='center'>
