@@ -161,7 +161,7 @@ class CreateGames extends React.Component {
                 state: this.state.gameSt,
                 address: this.state.gameAddress,
                 city: this.state.gameCity,
-                zip : this.state. gameZip
+                zip : this.state.gameZip
 
           })
             .then(res => {
