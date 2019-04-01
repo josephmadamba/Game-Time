@@ -151,6 +151,12 @@ class UserEntry extends Component {
       })
   }
 
+  componentDidMount(){
+    // axios.get()
+    // WILL TRY TO CREATE SESSIONS
+  }
+
+
   render() {
     const { classes } = this.props;
 

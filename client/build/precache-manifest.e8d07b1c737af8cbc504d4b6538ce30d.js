@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/createbutton.068baedb.png"
   },
   {
-    "revision": "056e0f8dbe20fe8a1579",
+    "revision": "222488f08cf77a550cae",
     "url": "/static/css/main.3cbeff7f.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/game.53513b69.png"
   },
   {
-    "revision": "056e0f8dbe20fe8a1579",
-    "url": "/static/js/main.16420c0a.chunk.js"
+    "revision": "222488f08cf77a550cae",
+    "url": "/static/js/main.23a4a9e9.chunk.js"
   },
   {
     "revision": "8608d679b34de83748f42d020bbf242d",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.924e7f46.chunk.css"
   },
   {
-    "revision": "98a0066589c999e97b93b81d4bf99a97",
+    "revision": "5e5b10c7abeb0f448d2d9309e3e00b6e",
     "url": "/index.html"
   }
 ];

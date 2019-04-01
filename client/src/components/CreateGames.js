@@ -173,7 +173,8 @@ class CreateGames extends React.Component {
                     this.setState({submit: false});
 
                   console.log(this.props)
-                  this.props.history.push('/dashboard')
+                  this.props.tab('click', 0)
+                  // this.props.history.push('/dashboard')
                 }
             })
             .catch(er=>{
