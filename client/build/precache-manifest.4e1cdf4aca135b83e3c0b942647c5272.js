@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/createbutton.068baedb.png"
   },
   {
-    "revision": "faba6bf5afa82033a5ae",
-    "url": "/static/css/main.3cbeff7f.chunk.css"
+    "revision": "5d52b27fd432bd219aa2",
+    "url": "/static/css/main.8a4eb738.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/media/basketball.cf8aeb26.jpg"
   },
   {
-    "revision": "01e6b01e44cf7fd7aa71",
-    "url": "/static/js/2.5c4339c8.chunk.js"
+    "revision": "58d3076bf4ca3b8e7c99",
+    "url": "/static/js/2.334e7627.chunk.js"
   },
   {
     "revision": "e0e5c67169c5f8ae328495258c110817",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/game.53513b69.png"
   },
   {
-    "revision": "faba6bf5afa82033a5ae",
-    "url": "/static/js/main.2e800cb7.chunk.js"
+    "revision": "5d52b27fd432bd219aa2",
+    "url": "/static/js/main.b225e4e8.chunk.js"
   },
   {
     "revision": "8608d679b34de83748f42d020bbf242d",
@@ -48,15 +48,11 @@ self.__precacheManifest = [
     "url": "/static/media/gamereg.ee266b3c.png"
   },
   {
-    "revision": "a85a6a35dbd325d98df18775007b7b47",
-    "url": "/static/media/today.a85a6a35.png"
-  },
-  {
-    "revision": "01e6b01e44cf7fd7aa71",
+    "revision": "58d3076bf4ca3b8e7c99",
     "url": "/static/css/2.924e7f46.chunk.css"
   },
   {
-    "revision": "1be51214e4b168c8b9ae771d828b4a1e",
+    "revision": "eb0c850c5a2bb3d30ac20055dcb48071",
     "url": "/index.html"
   }
 ];
