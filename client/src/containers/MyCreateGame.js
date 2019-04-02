@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import axios from 'axios'
 import NoMyGames from '../components/NoMyGames'
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 import '../styles/mycreategames.css'
 import List from '../components/JoinGame/JoinGameList'
 import { ClipLoader } from 'react-spinners';
@@ -12,30 +12,26 @@ const override = css`
     display: block;
     margin: 0 auto;
     border-color: red;
-`;
-
+`
 
 class MyCreateGame extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {show:false};
+  constructor (props) {
+    super(props)
+    this.state = { show: false }
   }
 
-  componentDidMount(){
+  componentDidMount () {
     axios.get(`api/mygames/${this.props.user.id}`)
-    .then(data=>{
-      this.props.addCreateGames(data.data.games)
-      this.setState({show:true})
-    })
-    .catch(er=>{
-
-    })
+      .then(data => {
+        this.props.addCreateGames(data.data.games)
+        this.setState({ show: true })
+      })
+      .catch(er => {
+        console.log(er)
+      })
   }
 
-
-
-
-  render() {
+  render () {
     return (
       <React.Fragment>
         
@@ -68,11 +64,8 @@ class MyCreateGame extends Component {
 
         }
 
-
-
-
       </React.Fragment>
-    );
+    )
   }
 }
 
@@ -80,15 +73,15 @@ const mapStateToProps = state => ({
   user: state.user,
   createdGames: state.myCreatedGame,
   myGames: state.myGames
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
 
-  addCreateGames: (data) => dispatch({type: 'GET_MY_GAME', value: data})
+  addCreateGames: (data) => dispatch({ type: 'GET_MY_GAME', value: data })
 
-});
+})
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MyCreateGame);
+)(MyCreateGame)
