@@ -1,35 +1,39 @@
 self.__precacheManifest = [
   {
-    "revision": "068baedb4c5e05a41ac69498ec1aea6e",
-    "url": "/static/media/createbutton.068baedb.png"
+    "revision": "dc9c1d9fe67f8645afb8",
+    "url": "/static/css/main.2e188fce.chunk.css"
   },
   {
-    "revision": "5d52b27fd432bd219aa2",
-    "url": "/static/css/main.8a4eb738.chunk.css"
+    "revision": "dc9c1d9fe67f8645afb8",
+    "url": "/static/js/main.3ce43970.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "cf8aeb26036ce2006bd54ec8ff934c7a",
-    "url": "/static/media/basketball.cf8aeb26.jpg"
+    "revision": "500c02ff5eda1386bc9e",
+    "url": "/static/css/2.42066a9c.chunk.css"
   },
   {
-    "revision": "58d3076bf4ca3b8e7c99",
-    "url": "/static/js/2.334e7627.chunk.js"
+    "revision": "500c02ff5eda1386bc9e",
+    "url": "/static/js/2.bcbfe912.chunk.js"
   },
   {
     "revision": "e0e5c67169c5f8ae328495258c110817",
     "url": "/static/media/shot.e0e5c671.gif"
   },
   {
+    "revision": "193522b5bf37652c32a18304a37f4c6b",
+    "url": "/static/media/Got.193522b5.png"
+  },
+  {
     "revision": "53513b6903d5b8c026c9ebee1b5c6b3e",
     "url": "/static/media/game.53513b69.png"
   },
   {
-    "revision": "5d52b27fd432bd219aa2",
-    "url": "/static/js/main.b225e4e8.chunk.js"
+    "revision": "068baedb4c5e05a41ac69498ec1aea6e",
+    "url": "/static/media/createbutton.068baedb.png"
   },
   {
     "revision": "8608d679b34de83748f42d020bbf242d",
@@ -48,11 +52,11 @@ self.__precacheManifest = [
     "url": "/static/media/gamereg.ee266b3c.png"
   },
   {
-    "revision": "58d3076bf4ca3b8e7c99",
-    "url": "/static/css/2.924e7f46.chunk.css"
+    "revision": "cf8aeb26036ce2006bd54ec8ff934c7a",
+    "url": "/static/media/basketball.cf8aeb26.jpg"
   },
   {
-    "revision": "eb0c850c5a2bb3d30ac20055dcb48071",
+    "revision": "2ea7f8dc84f56144dd0cb38d5256dd39",
     "url": "/index.html"
   }
 ];

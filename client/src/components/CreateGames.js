@@ -172,7 +172,7 @@ class CreateGames extends React.Component {
                   // this.props.history.push('/dashboard')
                 }
             })
-            .catch(er=>{
+            .catch(er=>{ console.log(er)
               
             })
      

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Video from '../img/shot.gif'
 import WOW from 'wowjs'
-// import GOT from '../img/got.png'
+import GOT from '../img/Got.png'
 import GAME from '../img/game.png'
 import CREATE from '../img/createbutton.png'
 import OR from '../img/or.png'
@@ -83,34 +83,34 @@ class Landing extends Component {
 
         <Typography align='center'>
 
-          {/* <img className={`${classes.got} wow bounceInLeft`} data-wow-duration='2.1s' data-wow-delay='2s' src={GOT} alt='' /> */}
+          <img className={`${classes.got} wow bounceInLeft`} data-wow-duration='1.1s' data-wow-delay='1s' src={GOT} alt='' />
         </Typography>
 
         <Typography align='center'>
-          <img className={`${classes.game} wow bounceInUp`} data-wow-duration='2s' data-wow-delay='2.2s' src={GAME} alt='' />
+          <img className={`${classes.game} wow bounceInUp`} data-wow-duration='1s' data-wow-delay='1.2s' src={GAME} alt='' />
         </Typography>
 
-        <br /> <br /> <br /> <br />  <br /> <br />  <br /> <br />
+        <br /> <br /> <br /> <br />  <br /> <br />  <br />
 
         <Typography align='center'>
           <Button href='/user/account'>
-            <img className={`${classes.create} wow bounceInDown`} data-wow-duration='2s' data-wow-delay='6s' src={CREATE} alt='' />
+            <img className={`${classes.create} wow bounceInLeft`} data-wow-duration='1s' data-wow-delay='3s' src={CREATE} alt='' />
           </Button>
 
           <br />
 
-          <img className={`${classes.or} wow bounceInRight`} data-wow-duration='2s' data-wow-delay='6.1s' src={OR} alt='' /> <br />
+          <img className={`${classes.or} wow bounceInRight`} data-wow-duration='1s' data-wow-delay='3.1s' src={OR} alt='' /> <br />
           <Button href='/user/account'>
-            <img className={`${classes.join} wow bounceInLeft`} data-wow-duration='2s' data-wow-delay='6.2s' src={JOIN} alt='' />
+            <img className={`${classes.join} wow bounceInLeft`} data-wow-duration='1s' data-wow-delay='3.2s' src={JOIN} alt='' />
           </Button>
         </Typography>
 
         <Typography align='center'>
-          <img className={`${classes.a} wow bounceInLeft`} data-wow-duration='2s' data-wow-delay='6.3s' src={A} alt='' />
+          <img className={`${classes.a} wow bounceInRight`} data-wow-duration='1s' data-wow-delay='3.3s' src={A} alt='' />
 
           &nbsp;&nbsp;&nbsp;
 
-          <img className={`${classes.gamereg} wow bounceInUp`} data-wow-duration='2s' data-wow-delay='6.4s' src={GAMEREG} alt='' />
+          <img className={`${classes.gamereg} wow bounceInRight`} data-wow-duration='1s' data-wow-delay='3.4s' src={GAMEREG} alt='' />
 
           &nbsp; &nbsp; &nbsp;
 
