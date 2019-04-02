@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import '../styles/mycreategames.css'
 import List from '../components/JoinGame/JoinGameList'
 import { ClipLoader } from 'react-spinners';
+import NoCreatedGames from '../components/NoCreatedGames'
+
 import { css } from '@emotion/core';
 const override = css`
     display: block;
@@ -54,8 +56,7 @@ class MyCreateGame extends Component {
             />
           ))
         :
-
-    <NoMyGames tab={this.props.tab} />
+  <NoCreatedGames tab={this.props.tab}/>
     : <div className='loadinClip'><ClipLoader
   css={override}
   sizeUnit={"px"}
