@@ -75,11 +75,11 @@ function SimpleTable ({ myGames, classes, date, time, description, gameid, index
                               addMyGames(games.data.games)
                             })
                             .catch(error => {
-                              console.log(error)
+
                             })
                         })
                         .catch(er => {
-                          console.log(er)
+
                         })
                     }}
 
@@ -98,7 +98,7 @@ function SimpleTable ({ myGames, classes, date, time, description, gameid, index
                             })
                         })
                         .catch(error => {
-                          console.log(error)
+
                         })
                     }} >
                       Cancel
