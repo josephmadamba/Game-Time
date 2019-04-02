@@ -164,11 +164,11 @@ class UserEntry extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Tabs value={this.state.value} className='tabs' onChange={this.handleChange}>
-            <Tab label="Register" />
             <Tab label="Login" />
+            <Tab label="Register" />
           </Tabs>
         </AppBar>
-        {this.state.value === 0 && (
+        {this.state.value === 1 && (
           <TabContainer>
               <h1 className='header'>Register</h1>
             <form
@@ -211,7 +211,7 @@ class UserEntry extends Component {
             </form>
           </TabContainer>
         )}
-        {this.state.value === 1 && (
+        {this.state.value === 0 && (
           <TabContainer>
               <h1 className='header'>Login</h1>
             <form
