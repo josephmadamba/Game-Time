@@ -10,7 +10,7 @@ import OR from '../img/or.png'
 import JOIN from '../img/joinbutton.png'
 import A from '../img/a.png'
 import GAMEREG from '../img/gamereg.png'
-// import TODAY from '../img/today.png'
+import TODAY from '../img/LandingToday.png'
 
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -114,7 +114,7 @@ class Landing extends Component {
 
           &nbsp; &nbsp; &nbsp;
 
-          {/* <img className={`${classes.today} wow bounceInRight`} data-wow-duration='2s' data-wow-delay='6.5s' src={TODAY} alt='' /> */}
+          <img className={`${classes.today} wow bounceInRight`} data-wow-duration='2s' data-wow-delay='3.5s' src={TODAY} alt='' />
         </Typography>
       </div>
     )
