@@ -3,8 +3,8 @@
 
 ##Live Demo
 ---
-<!-- [Space Balls](http://paigeniedringhaus.com/spaceBalls/) -->
-Will be uploaded soon
+[GameTime Hoops](https://pickup-hoops.herokuapp.com)
+
 
 ##Link to Video of Gameplay
 ---
