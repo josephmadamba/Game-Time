@@ -124,6 +124,7 @@ class CreateGames extends React.Component {
         evt.preventDefault();
         let dayNumber = this.getDay()
         let date = this.getDate()
+
         
         this.handleCreateGame(date[1], dayNumber, date[2].slice(0,5), this.state.gameName, this.state.gameDesc, this.props.user.id )
     }
@@ -131,20 +132,16 @@ class CreateGames extends React.Component {
     
     componentDidUpdate() {
 
-
     }
     
     getDay() {
         let day = this.state.startDate
-        return ((day.getUTCDay()+6)%7)
+        return (((day.getUTCDay()+7)%7))
     }
     getDate() {
         let str = JSON.stringify(this.state.startDate)
-        console.log('This is str from getData', str)
         let string = str.replace('"', 'T')
-        console.log(string)
         let data = string.split('T')
-        console.log(data)
 
         return data
     }
@@ -157,23 +154,26 @@ class CreateGames extends React.Component {
                 time: time,
                 title: title,
                 description: description,
-                user:user
+                user:user,
+                state: this.state.gameSt,
+                address: this.state.gameAddress,
+                city: this.state.gameCity,
+                zip : this.state.gameZip
 
           })
             .then(res => {
-                console.log(res.data)
                 if(res.data.success){
                   
 
 
                     this.setState({submit: false});
 
-                  console.log(this.props)
-                  this.props.history.push('/dashboard')
+                  this.props.tab('click', 0)
+                  // this.props.history.push('/dashboard')
                 }
             })
             .catch(er=>{
-                console.log(er)
+              
             })
      
     }
