@@ -6,7 +6,7 @@ import WOW from 'wowjs'
 import GOT from '../img/Got.png'
 import GAME from '../img/game.png'
 import CREATE from '../img/createbutton.png'
-import OR from '../img/or.png'
+import OR from '../img/Or.png'
 import JOIN from '../img/joinbutton.png'
 import A from '../img/a.png'
 import GAMEREG from '../img/gamereg.png'
@@ -114,7 +114,7 @@ class Landing extends Component {
 
           &nbsp; &nbsp; &nbsp;
 
-          <img className={`${classes.today} wow bounceInRight`} data-wow-duration='2s' data-wow-delay='3.5s' src={TODAY} alt='' />
+          <img className={`${classes.today} wow bounceInRight`} data-wow-duration='1s' data-wow-delay='3.5s' src={TODAY} alt='' />
         </Typography>
       </div>
     )

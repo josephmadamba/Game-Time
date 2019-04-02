@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "df6da62946d818b4c162",
+    "revision": "ad306bfa56ab4dad75fa",
     "url": "/static/css/main.2e188fce.chunk.css"
   },
   {
-    "revision": "df6da62946d818b4c162",
-    "url": "/static/js/main.a7b36e1a.chunk.js"
+    "revision": "ad306bfa56ab4dad75fa",
+    "url": "/static/js/main.4226f6ec.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -37,7 +37,7 @@ self.__precacheManifest = [
   },
   {
     "revision": "8608d679b34de83748f42d020bbf242d",
-    "url": "/static/media/or.8608d679.png"
+    "url": "/static/media/Or.8608d679.png"
   },
   {
     "revision": "055e0c69ada1ed11c94466779fedc219",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/static/media/basketball.cf8aeb26.jpg"
   },
   {
-    "revision": "6edc3426cd7cf93c5c75109d3ff340cc",
+    "revision": "b87f602d2e458423f8bc9bbfd0143608",
     "url": "/index.html"
   }
 ];
