@@ -1,35 +1,39 @@
 self.__precacheManifest = [
   {
-    "revision": "068baedb4c5e05a41ac69498ec1aea6e",
-    "url": "/static/media/createbutton.068baedb.png"
+    "revision": "df6da62946d818b4c162",
+    "url": "/static/css/main.2e188fce.chunk.css"
   },
   {
-    "revision": "464142720d4d61edf0b0",
-    "url": "/static/css/main.8a4eb738.chunk.css"
+    "revision": "df6da62946d818b4c162",
+    "url": "/static/js/main.a7b36e1a.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "cf8aeb26036ce2006bd54ec8ff934c7a",
-    "url": "/static/media/basketball.cf8aeb26.jpg"
+    "revision": "4bdb04bf47346ff3329a",
+    "url": "/static/css/2.42066a9c.chunk.css"
   },
   {
-    "revision": "05e90e635dd44a9d85e5",
-    "url": "/static/js/2.1e8b782c.chunk.js"
+    "revision": "4bdb04bf47346ff3329a",
+    "url": "/static/js/2.e819e7c6.chunk.js"
   },
   {
     "revision": "e0e5c67169c5f8ae328495258c110817",
     "url": "/static/media/shot.e0e5c671.gif"
   },
   {
+    "revision": "d7ead4105d0a621a8145e5abbfeabe80",
+    "url": "/static/media/Got.d7ead410.png"
+  },
+  {
     "revision": "53513b6903d5b8c026c9ebee1b5c6b3e",
     "url": "/static/media/game.53513b69.png"
   },
   {
-    "revision": "464142720d4d61edf0b0",
-    "url": "/static/js/main.b3c04c0c.chunk.js"
+    "revision": "068baedb4c5e05a41ac69498ec1aea6e",
+    "url": "/static/media/createbutton.068baedb.png"
   },
   {
     "revision": "8608d679b34de83748f42d020bbf242d",
@@ -48,11 +52,15 @@ self.__precacheManifest = [
     "url": "/static/media/gamereg.ee266b3c.png"
   },
   {
-    "revision": "05e90e635dd44a9d85e5",
-    "url": "/static/css/2.924e7f46.chunk.css"
+    "revision": "fbaa8f6a7d2cf819b2a28a52f6515bb4",
+    "url": "/static/media/LandingToday.fbaa8f6a.png"
   },
   {
-    "revision": "cbcfb45d121c5b38dbdde8d492e6b71c",
+    "revision": "cf8aeb26036ce2006bd54ec8ff934c7a",
+    "url": "/static/media/basketball.cf8aeb26.jpg"
+  },
+  {
+    "revision": "6edc3426cd7cf93c5c75109d3ff340cc",
     "url": "/index.html"
   }
 ];
