@@ -136,7 +136,7 @@ class CreateGames extends React.Component {
     
     getDay() {
         let day = this.state.startDate
-        return (((day.getUTCDay()+7)%7))
+        return (((day.getUTCDay()+6)%7))
     }
     getDate() {
         let str = JSON.stringify(this.state.startDate)
